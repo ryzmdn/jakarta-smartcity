@@ -120,6 +120,27 @@ const features = [
   },
 ];
 
+const kuliner = [
+  {
+    name: 'Minimal and thoughtful',
+    description:
+      'Our laptop sleeve is compact and precisely fits 13" devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.',
+    imageSrc: 'https://cdn1-production-images-kly.akamaized.net/jYNtAE2I8P04XtKahdHRpgFrysQ=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3085839/original/045051600_1585201940-wisata-kuliner-jakarta-2.jpg',
+    imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
+  },
+  {
+    name: 'Refined details',
+    description:
+      'We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.',
+    imageSrc: 'https://www.indonesia.travel/contentassets/f8c70bafb4a4400ea123fd2fd6e02da1/kuliner-jakarta-indonesia-travel.jpg',
+    imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+  },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 export default function Home() {
   return (
     <>
@@ -422,6 +443,47 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Protect your device</h2>
+          <p className="mt-4 text-gray-500">
+            As a digital creative, your laptop or tablet is at the center of your work. Keep your device safe with a
+            fabric sleeve that matches in quality and looks.
+          </p>
+        </div>
+
+        <div className="mt-16 space-y-16">
+          {kuliner.map((feature, featureIdx) => (
+            <div
+              key={feature.name}
+              className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8"
+            >
+              <div
+                className={classNames(
+                  featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9',
+                  'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4',
+                )}
+              >
+                <h3 className="text-lg font-medium text-gray-900">{feature.name}</h3>
+                <p className="mt-2 text-sm text-gray-500">{feature.description}</p>
+              </div>
+              <div
+                className={classNames(
+                  featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1',
+                  'flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8',
+                )}
+              >
+                <img
+                  alt={feature.imageAlt}
+                  src={feature.imageSrc}
+                  className="aspect-5/2 w-full rounded-lg bg-gray-100 object-cover"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </>
