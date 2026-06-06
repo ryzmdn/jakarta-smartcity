@@ -62,6 +62,64 @@ const timeline = [
   },
 ];
 
+const categories = [
+  {
+    name: "Destinasi & Budaya Betawi",
+    href: "#",
+    imageSrc:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq6E7iU9JEiHxtqGppOY-Sz_J8srw0tLHnTTqZnAbrgAjo7Ev29oWiqgAh1xaQ6AXxN02EVV0Fa-gIsUvv0inBaMuUf4OZREQql2M_1rrIrKth0m7MYvnIOX5tyrn-EvTygJb78B-7Uec/s1600/Ondel+Ondel.jpg",
+    imageAlt:
+      "Sepasang seni pertunjukan tradisional Ondel-ondel khas Betawi Jakarta.",
+    description:
+      "Jelajahi kekayaan warisan sejarah, festival seni, dan destinasi wisata ikonik di seluruh penjuru ibu kota.",
+  },
+  {
+    name: "Komunitas & Ruang Publik",
+    href: "#",
+    imageSrc:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Pencak_Silat_Betawi_2.jpg/960px-Pencak_Silat_Betawi_2.jpg",
+    imageAlt:
+      "Dua orang pesilat sedang memperagakan gerakan Pencak Silat khas Betawi.",
+    description:
+      "Wadah kolaborasi warga, kegiatan pemuda, serta pelestarian seni bela diri tradisional di ruang publik Jakarta.",
+  },
+  {
+    name: "Portal Layanan Pintar (JAKI)",
+    href: "#",
+    imageSrc:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdtahxmjBki9mmPic8ikOou6Vubr7qQRWdpw&s",
+    imageAlt: "Ilustrasi ekosistem digital layanan publik Jakarta Smart City.",
+    description:
+      "Akses seluruh layanan kependudukan, laporan warga, transportasi, hingga bantuan sosial dalam satu pintu.",
+  },
+];
+
+const features = [
+  {
+    name: "Adventure-ready",
+    description:
+      "The Drawstring Canister is water and tear resistant with durable canvas construction. This bag holds up to the demands of daily use while keeping your snacks secure.",
+    imageSrc:
+      "https://cnc-magazine.oramiland.com/parenting/images/artikel_HERO_1_Wb7acus.width-800.format-webp.webp",
+    imageAlt: "Printed photo of bag being tossed into the sky on top of grass.",
+  },
+  {
+    name: "Minimal and clean",
+    description:
+      "Everything you need, nothing you don't. This bag has the simple, contemporary design that enables you to tell everyone you know about how essentialism is the only rational way to live life.",
+    imageSrc: "https://katafoto.id/wp-content/uploads/2025/07/Jkt-191A3123.jpg",
+    imageAlt: "Double stitched black canvas hook loop.",
+  },
+  {
+    name: "Organized",
+    description:
+      "Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.",
+    imageSrc:
+      "https://cdn0-production-images-kly.akamaized.net/MosRe9phwynaMY4KfLq7XTKAvQQ=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/1375036/original/010506800_1476592430-20161016--Serunya-Karnaval-Kebudayaan-Betawi-di-CFD-Jakarta--Faizal-Fanani-03.jpg",
+    imageAlt: "Black canvas body with chrome zipper and key ring.",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -213,90 +271,157 @@ export default function Home() {
 
         <div className="w-full py-20 space-y-16">
           <div>
-          <div className="text-center mx-auto max-w-2xl">
-            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-              We approach work as a place to make the world better
-            </h2>
-            <p className="mt-6 text-base/7 text-gray-600">
-              Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est
-              euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus
-              sit eu in id. Integer vel nibh.
-            </p>
+            <div className="text-center mx-auto max-w-2xl">
+              <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+                We approach work as a place to make the world better
+              </h2>
+              <p className="mt-6 text-base/7 text-gray-600">
+                Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est
+                euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus
+                sit eu in id. Integer vel nibh.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
+              <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-50 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start">
+                <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">
+                  250k
+                </p>
+                <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
+                  <p className="text-lg font-semibold tracking-tight text-gray-900">
+                    Users on the platform
+                  </p>
+                  <p className="mt-2 text-base/7 text-gray-600">
+                    Vel labore deleniti veniam consequuntur sunt nobis.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44">
+                <p className="flex-none text-3xl font-bold tracking-tight text-white">
+                  $8.9 billion
+                </p>
+                <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
+                  <p className="text-lg font-semibold tracking-tight text-white">
+                    We’re proud that our customers have made over $8 billion in
+                    total revenue.
+                  </p>
+                  <p className="mt-2 text-base/7 text-gray-400">
+                    Eu duis porta aliquam ornare. Elementum eget magna egestas.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-indigo-600 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
+                <p className="flex-none text-3xl font-bold tracking-tight text-white">
+                  401,093
+                </p>
+                <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
+                  <p className="text-lg font-semibold tracking-tight text-white">
+                    Transactions this year
+                  </p>
+                  <p className="mt-2 text-base/7 text-indigo-200">
+                    Eu duis porta aliquam ornare. Elementum eget magna egestas.
+                    Eu duis porta aliquam ornare.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
-            <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-50 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start">
-              <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">
-                250k
-              </p>
-              <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                <p className="text-lg font-semibold tracking-tight text-gray-900">
-                  Users on the platform
+
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
+            {timeline.map((item) => (
+              <div key={item.name}>
+                <time
+                  dateTime={item.dateTime}
+                  className="flex items-center text-sm/6 font-semibold text-indigo-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    aria-hidden="true"
+                    className="mr-4 size-1 flex-none"
+                  >
+                    <circle r={2} cx={2} cy={2} fill="currentColor" />
+                  </svg>
+                  {item.date}
+                  <div
+                    aria-hidden="true"
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                  />
+                </time>
+                <p className="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
+                  {item.name}
                 </p>
-                <p className="mt-2 text-base/7 text-gray-600">
-                  Vel labore deleniti veniam consequuntur sunt nobis.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44">
-              <p className="flex-none text-3xl font-bold tracking-tight text-white">
-                $8.9 billion
-              </p>
-              <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                <p className="text-lg font-semibold tracking-tight text-white">
-                  We’re proud that our customers have made over $8 billion in
-                  total revenue.
-                </p>
-                <p className="mt-2 text-base/7 text-gray-400">
-                  Eu duis porta aliquam ornare. Elementum eget magna egestas.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-indigo-600 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
-              <p className="flex-none text-3xl font-bold tracking-tight text-white">
-                401,093
-              </p>
-              <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                <p className="text-lg font-semibold tracking-tight text-white">
-                  Transactions this year
-                </p>
-                <p className="mt-2 text-base/7 text-indigo-200">
-                  Eu duis porta aliquam ornare. Elementum eget magna egestas. Eu
-                  duis porta aliquam ornare.
+                <p className="mt-1 text-base/7 text-gray-600">
+                  {item.description}
                 </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
-          {timeline.map((item) => (
-            <div key={item.name}>
-              <time
-                dateTime={item.dateTime}
-                className="flex items-center text-sm/6 font-semibold text-indigo-600"
-              >
-                <svg
-                  viewBox="0 0 4 4"
-                  aria-hidden="true"
-                  className="mr-4 size-1 flex-none"
-                >
-                  <circle r={2} cx={2} cy={2} fill="currentColor" />
-                </svg>
-                {item.date}
-                <div
-                  aria-hidden="true"
-                  className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
-                />
-              </time>
-              <p className="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
-                {item.name}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          Shop by Collection
+        </h2>
+        <p className="mt-4 text-base text-gray-500">
+          Each season, we collaborate with world-class designers to create a
+          collection inspired by the natural world.
+        </p>
+
+        <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
+          {categories.map((category) => (
+            <a key={category.name} href={category.href} className="group block">
+              <img
+                alt={category.imageAlt}
+                src={category.imageSrc}
+                className="aspect-3/2 w-full rounded-lg object-cover group-hover:opacity-75 lg:aspect-5/6"
+              />
+              <h3 className="mt-4 text-base font-semibold text-gray-900">
+                {category.name}
+              </h3>
+              <p className="mt-2 text-sm text-gray-500">
+                {category.description}
               </p>
-              <p className="mt-1 text-base/7 text-gray-600">
-                {item.description}
-              </p>
-            </div>
+            </a>
           ))}
         </div>
+
+        <div className="mx-auto max-w-2xl lg:max-w-none">
+          <div className="max-w-3xl">
+            <h2 className="font-semibold text-gray-500">Drawstring Canister</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Use it your way
+            </p>
+            <p className="mt-4 text-gray-500">
+              The Drawstring Canister comes with multiple strap and handle
+              options to adapt throughout your day. Shoulder sling it, backpack
+              it, or handy carry it.
+            </p>
+          </div>
+
+          <div className="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
+            {features.map((feature) => (
+              <div
+                key={feature.name}
+                className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8"
+              >
+                <div className="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
+                  <h3 className="text-lg font-medium text-gray-900">
+                    {feature.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-500">
+                    {feature.description}
+                  </p>
+                </div>
+                <div className="flex-auto lg:col-span-7 xl:col-span-8">
+                  <img
+                    alt={feature.imageAlt}
+                    src={feature.imageSrc}
+                    className="aspect-5/2 w-full rounded-lg bg-gray-100 object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
