@@ -122,24 +122,51 @@ const features = [
 
 const kuliner = [
   {
-    name: 'Minimal and thoughtful',
+    name: "Minimal and thoughtful",
     description:
       'Our laptop sleeve is compact and precisely fits 13" devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.',
-    imageSrc: 'https://cdn1-production-images-kly.akamaized.net/jYNtAE2I8P04XtKahdHRpgFrysQ=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3085839/original/045051600_1585201940-wisata-kuliner-jakarta-2.jpg',
-    imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
+    imageSrc:
+      "https://cdn1-production-images-kly.akamaized.net/jYNtAE2I8P04XtKahdHRpgFrysQ=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3085839/original/045051600_1585201940-wisata-kuliner-jakarta-2.jpg",
+    imageAlt:
+      "White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.",
   },
   {
-    name: 'Refined details',
+    name: "Refined details",
     description:
-      'We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.',
-    imageSrc: 'https://www.indonesia.travel/contentassets/f8c70bafb4a4400ea123fd2fd6e02da1/kuliner-jakarta-indonesia-travel.jpg',
-    imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+      "We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.",
+    imageSrc:
+      "https://www.indonesia.travel/contentassets/f8c70bafb4a4400ea123fd2fd6e02da1/kuliner-jakarta-indonesia-travel.jpg",
+    imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
   },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
+
+const callouts = [
+  {
+    name: 'Desk and Office',
+    description: 'Work from home accessories',
+    imageSrc: 'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01gar37wem6q19q1smfzpqyx57.jpg',
+    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
+    href: '#',
+  },
+  {
+    name: 'Self-Improvement',
+    description: 'Journals and note-taking',
+    imageSrc: 'https://www.cimbniaga.co.id/content/dam/cimb/inspirasi/wisata-kota-tua-museum-fatahillah.webp',
+    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
+    href: '#',
+  },
+  {
+    name: 'Travel',
+    description: 'Daily commute essentials',
+    imageSrc: 'https://superlive.id/storage/superadventure/2020/10/04/6a759dfce85f.jpg',
+    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+    href: '#',
+  },
+]
 
 export default function Home() {
   return (
@@ -448,10 +475,13 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Protect your device</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Protect your device
+          </h2>
           <p className="mt-4 text-gray-500">
-            As a digital creative, your laptop or tablet is at the center of your work. Keep your device safe with a
-            fabric sleeve that matches in quality and looks.
+            As a digital creative, your laptop or tablet is at the center of
+            your work. Keep your device safe with a fabric sleeve that matches
+            in quality and looks.
           </p>
         </div>
 
@@ -463,17 +493,25 @@ export default function Home() {
             >
               <div
                 className={classNames(
-                  featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9',
-                  'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4',
+                  featureIdx % 2 === 0
+                    ? "lg:col-start-1"
+                    : "lg:col-start-8 xl:col-start-9",
+                  "mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4",
                 )}
               >
-                <h3 className="text-lg font-medium text-gray-900">{feature.name}</h3>
-                <p className="mt-2 text-sm text-gray-500">{feature.description}</p>
+                <h3 className="text-lg font-medium text-gray-900">
+                  {feature.name}
+                </h3>
+                <p className="mt-2 text-sm text-gray-500">
+                  {feature.description}
+                </p>
               </div>
               <div
                 className={classNames(
-                  featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1',
-                  'flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8',
+                  featureIdx % 2 === 0
+                    ? "lg:col-start-6 xl:col-start-5"
+                    : "lg:col-start-1",
+                  "flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8",
                 )}
               >
                 <img
@@ -484,6 +522,135 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-8">
+        <div>
+          <div className="sm:flex sm:items-baseline sm:justify-between">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              Shop by Category
+            </h2>
+            <a
+              href="#"
+              className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
+            >
+              Browse all categories
+              <span aria-hidden="true"> &rarr;</span>
+            </a>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
+            <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square">
+              <img
+                alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
+                src="https://www.nowjakarta.co.id/wp-content/uploads/2023/01/Taman-Mini-Indonesia-Jakarta-1.jpg"
+                className="absolute size-full object-cover group-hover:opacity-75"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50"
+              />
+              <div className="absolute inset-0 flex items-end p-6">
+                <div>
+                  <h3 className="font-semibold text-white">
+                    <a href="#">
+                      <span className="absolute inset-0" />
+                      New Arrivals
+                    </a>
+                  </h3>
+                  <p aria-hidden="true" className="mt-1 text-sm text-white">
+                    Shop now
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
+              <img
+                alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
+                src="https://www.iwarebatik.org/wp-content/uploads/2019/11/monas.jpg"
+                className="absolute size-full object-cover group-hover:opacity-75"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50"
+              />
+              <div className="absolute inset-0 flex items-end p-6">
+                <div>
+                  <h3 className="font-semibold text-white">
+                    <a href="#">
+                      <span className="absolute inset-0" />
+                      Accessories
+                    </a>
+                  </h3>
+                  <p aria-hidden="true" className="mt-1 text-sm text-white">
+                    Shop now
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
+              <img
+                alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
+                src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2024/12/29/591e6cad-919d-4c23-95a5-0a7f6d2b866a-1735466532176-da6a7edce3a96e416b7f994f5bf87670.png"
+                className="absolute size-full object-cover group-hover:opacity-75"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50"
+              />
+              <div className="absolute inset-0 flex items-end p-6">
+                <div>
+                  <h3 className="font-semibold text-white">
+                    <a href="#">
+                      <span className="absolute inset-0" />
+                      Workspace
+                    </a>
+                  </h3>
+                  <p aria-hidden="true" className="mt-1 text-sm text-white">
+                    Shop now
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 sm:hidden">
+            <a
+              href="#"
+              className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500"
+            >
+              Browse all categories
+              <span aria-hidden="true"> &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-7xl w-full">
+          <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+            <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
+
+            <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-6">
+              {callouts.map((callout) => (
+                <div key={callout.name} className="group relative">
+                  <img
+                    alt={callout.imageAlt}
+                    src={callout.imageSrc}
+                    className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square"
+                  />
+                  <h3 className="mt-6 text-sm text-gray-500">
+                    <a href={callout.href}>
+                      <span className="absolute inset-0" />
+                      {callout.name}
+                    </a>
+                  </h3>
+                  <p className="text-base font-semibold text-gray-900">
+                    {callout.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>
