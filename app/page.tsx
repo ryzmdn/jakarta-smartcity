@@ -250,29 +250,10 @@ export default function Home() {
             </div>
             <div className="h-48 w-full bg-white" />
           </div>
-          <div className="relative py-32">
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-100 sm:text-7xl">
+          <div className="relative py-36">
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-100 sm:text-6xl lg:text-7xl">
               Mewujudkan Jakarta Cerdas & Kolaboratif
             </h1>
-            <p className="mt-8 leading-7 font-medium text-pretty text-gray-300 sm:text-lg/8">
-              Mengintegrasikan teknologi informasi dan komunikasi untuk
-              mengoptimalkan pelayanan publik, meningkatkan efisiensi, dan
-              mewujudkan kehidupan warga Jakarta yang lebih berkualitas.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
-              >
-                Jelajahi Inovasi
-              </a>
-              <a
-                href="#"
-                className="text-sm/6 font-semibold text-gray-900 dark:text-white"
-              >
-                Learn more <span aria-hidden="true">→</span>
-              </a>
-            </div>
           </div>
         </div>
 
