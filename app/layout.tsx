@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { AppHeader } from "@/components/app-header";
 import { AppFooter } from "@/components/app-footer";
+import { cn } from "@/lib/utils";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plusjakarta-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Jakarta Smart City - Nusantara Digital City",
-  description: "Portal kota cerdas, kebudayaan Betawi, destinasi wisata, dan pelayanan publik digital DKI Jakarta.",
+  description:
+    "Portal kota cerdas, kebudayaan Betawi, destinasi wisata, dan pelayanan publik digital DKI Jakarta.",
 };
 
 export default function RootLayout({
@@ -25,13 +22,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col overflow-x-hidden bg-slate-50">
+    <html lang="id" className="scroll-smooth overflow-auto">
+      <body
+        className={cn(
+          plusJakartaSans.className,
+          "font-sans antialiased w-full min-h-dvh bg-neutral-50 text-neutral-900 overflow-x-hidden",
+        )}
+      >
         <AppHeader />
-        {children}
+        <main className="size-full min-w-xs max-w-7xl mx-auto bg-transparent">
+          {children}
+        </main>
         <AppFooter />
       </body>
     </html>
