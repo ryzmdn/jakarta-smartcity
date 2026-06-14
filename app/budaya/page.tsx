@@ -1,13 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  SparklesIcon,
-  MusicalNoteIcon,
-  HomeIcon,
-  FlagIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const CULTURE_TITLE = "Warisan Budaya Betawi";
 const CULTURE_SUBTITLE = "Melestarikan nilai luhur tradisi di tengah pusaran modernitas Jakarta";
