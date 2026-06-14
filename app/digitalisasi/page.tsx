@@ -1,318 +1,212 @@
-const collections = [
+"use client";
+
+import { useState } from "react";
+import {
+  CpuChipIcon,
+  UserGroupIcon,
+  GlobeAltIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+  ArrowPathIcon,
+} from "@heroicons/react/24/outline";
+
+const DIGITAL_TITLE = "Transformasi Digital & Smart City";
+const DIGITAL_SUBTITLE = "Mewujudkan Jakarta sebagai kota pintar, kolaboratif, dan terintegrasi secara penuh";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1562367072-fea5c7eb8748?q=80&w=1200&auto=format&fit=crop";
+
+const SMART_PILLARS = [
   {
-    name: "Women's",
-    href: "#",
-    imageSrc:
-      "https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    imageAlt: "Woman wearing an off-white cotton t-shirt.",
+    id: "governance",
+    title: "Smart Governance",
+    icon: ShieldCheckIcon,
+    project: "Command Center & Open Data",
+    description: "Sistem pemerintahan transparan berbasis data real-time untuk pengambilan keputusan cepat, serta platform Jakarta Open Data bagi publik.",
   },
   {
-    name: "Men's",
-    href: "#",
-    imageSrc:
-      "https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    imageAlt: "Man wearing a charcoal gray cotton t-shirt.",
+    id: "mobility",
+    title: "Smart Mobility",
+    icon: ArrowPathIcon,
+    project: "JakLingko & Intelligent Traffic System",
+    description: "Integrasi tarif dan rute transportasi umum massal (MRT, LRT, TJ) serta optimasi lampu lalu lintas adaptif berbasis sensor pintar.",
   },
   {
-    name: "Desk Accessories",
-    href: "#",
-    imageSrc:
-      "https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    imageAlt:
-      "Person sitting at a wooden desk with paper note organizer, pencil and tablet.",
+    id: "people",
+    title: "Smart People",
+    icon: UserGroupIcon,
+    project: "Jakpreneur & Literasi Digital",
+    description: "Pemberdayaan pelaku UMKM lokal secara digital, pelatihan coding, serta penyediaan ribuan titik Wi-Fi gratis (JakWifi) di pemukiman.",
+  },
+  {
+    id: "environment",
+    title: "Smart Environment",
+    icon: GlobeAltIcon,
+    project: "Sensor Banjir & Kualitas Udara",
+    description: "Pemasangan ratusan sensor IoT pengukur tinggi muka air kali untuk deteksi banjir dini, serta stasiun pemantau indeks kualitas udara (AQMS).",
   },
 ];
 
-const people = [
-  {
-    name: "Leonard Krasner",
-    role: "Senior Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    xUrl: "#",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Floyd Miles",
-    role: "Principal Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    xUrl: "#",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Emily Selman",
-    role: "VP, User Experience",
-    imageUrl:
-      "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    xUrl: "#",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Kristin Watson",
-    role: "VP, Human Resources",
-    imageUrl:
-      "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    xUrl: "#",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Emma Dorsey",
-    role: "Senior Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    xUrl: "#",
-    linkedinUrl: "#",
-  },
-  {
-    name: "Alicia Bell",
-    role: "Junior Copywriter",
-    imageUrl:
-      "https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    xUrl: "#",
-    linkedinUrl: "#",
-  },
+const JAKI_FEATURES = [
+  { name: "Laporan Warga (JakLapor)", desc: "Laporkan permasalahan fasilitas umum seperti jalan rusak atau sampah menumpuk langsung ke dinas terkait secara anonim." },
+  { name: "Transportasi Publik (JakLingko)", desc: "Cek rute, tarif terintegrasi, hingga jadwal real-time TransJakarta, MRT, dan LRT dalam satu genggaman." },
+  { name: "Layanan Kesehatan (JakSehat)", desc: "Daftar antrean faskes online, cek stok darah PMI, hingga konsultasi kesehatan mental tanpa antre." },
 ];
 
 export default function DigitalisasiPage() {
+  const [activePillar, setActivePillar] = useState("governance");
+  const selectedPillar = SMART_PILLARS.find((p) => p.id === activePillar) || SMART_PILLARS[0];
+
   return (
-    <>
-      <div className="relative bg-white">
-        {/* Background image and overlap */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 hidden sm:flex sm:flex-col"
-        >
-          <div className="relative w-full flex-1 bg-gray-800">
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="size-full object-cover"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gray-900 opacity-50" />
-          </div>
-          <div className="h-32 w-full bg-white md:h-40 lg:h-48" />
-        </div>
-
-        <div className="relative mx-auto max-w-3xl px-4 pb-96 text-center sm:px-6 sm:pb-0 lg:px-8">
-          {/* Background image and overlap */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 flex flex-col sm:hidden"
-          >
-            <div className="relative w-full flex-1 bg-gray-800">
-              <div className="absolute inset-0 overflow-hidden">
-                <img
-                  alt=""
-                  src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="size-full object-cover"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gray-900 opacity-50" />
-            </div>
-            <div className="h-48 w-full bg-white" />
-          </div>
-          <div className="relative py-32">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Mid-Season Sale
-            </h1>
-            <div className="mt-4 sm:mt-6">
-              <a
-                href="#"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 font-medium text-white hover:bg-indigo-700"
-              >
-                Shop Collection
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <section
-          aria-labelledby="collection-heading"
-          className="relative -mt-96 sm:mt-0"
-        >
-          <h2 id="collection-heading" className="sr-only">
-            Collections
-          </h2>
-          <div className="mx-auto grid max-w-md grid-cols-1 gap-y-6 px-4 sm:max-w-7xl sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 sm:px-6 lg:gap-x-8 lg:px-8">
-            {collections.map((collection) => (
-              <div
-                key={collection.name}
-                className="group relative h-96 rounded-lg bg-white shadow-xl sm:aspect-4/5 sm:h-auto"
-              >
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 overflow-hidden rounded-lg"
-                >
-                  <div className="absolute inset-0 overflow-hidden group-hover:opacity-75">
-                    <img
-                      alt={collection.imageAlt}
-                      src={collection.imageSrc}
-                      className="size-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-                </div>
-                <div className="absolute inset-0 flex items-end rounded-lg p-6">
-                  <div>
-                    <p aria-hidden="true" className="text-sm text-white">
-                      Shop the collection
-                    </p>
-                    <h3 className="mt-1 font-semibold text-white">
-                      <a href={collection.href}>
-                        <span className="absolute inset-0" />
-                        {collection.name}
-                      </a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-
-      <div className="mx-auto max-w-7xl w-full px-6 py-20 text-center lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
-            Meet our team
-          </h2>
-          <p className="mt-6 text-lg/8 text-gray-600">
-            We’re a dynamic group of individuals who are passionate about what
-            we do and dedicated to delivering the best results for our clients.
+    <main className="flex-1 bg-slate-50">
+      {/* Hero Header */}
+      <section className="relative h-[380px] flex items-center justify-center overflow-hidden bg-slate-900" aria-labelledby="page-title">
+        <img
+          alt="Latar belakang visualisasi data besar Jakarta Smart City"
+          src={HERO_IMAGE}
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
+        <div className="relative max-w-4xl mx-auto px-6 text-center text-white z-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-300 ring-1 ring-inset ring-indigo-500/30 mb-4">
+            Ekosistem Cerdas
+          </span>
+          <h1 id="page-title" className="text-4xl font-extrabold sm:text-5xl lg:text-6xl tracking-tight">
+            {DIGITAL_TITLE}
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-slate-200 font-light max-w-2xl mx-auto">
+            {DIGITAL_SUBTITLE}
           </p>
         </div>
-        <ul
-          role="list"
-          className="mx-auto grid max-w-2xl grid-cols-1 gap-6 mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
-        >
-          {people.map((person) => (
-            <li
-              key={person.name}
-              className="rounded-2xl bg-gray-100 px-8 py-10"
-            >
-              <img
-                alt=""
-                src={person.imageUrl}
-                className="mx-auto size-48 rounded-full outline-1 -outline-offset-1 outline-black/5 md:size-56"
-              />
-              <h3 className="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
-                {person.name}
-              </h3>
-              <p className="text-sm/6 text-gray-600">{person.role}</p>
-              <div role="list" className="flex justify-center items-center gap-x-3">
-                <a href="#">
-                  <img src="https://www.svgrepo.com/show/303118/google-play-download-android-app-logo.svg" alt="Google Play" className="w-auto h-28" />
-                </a>
-                <a href="#">
-                  <img src="https://www.svgrepo.com/show/303128/download-on-the-app-store-apple-logo.svg" alt="Google Play" className="w-auto h-32" />
-                </a>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      </section>
 
-      <div className="mx-auto max-w-2xl w-full px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="relative overflow-hidden rounded-lg lg:h-96">
-          <div className="absolute inset-0">
-            <img
-              alt=""
-              src="https://images.unsplash.com/photo-1533022139390-e31c488d69e2?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="size-full object-cover"
-            />
-          </div>
-          <div aria-hidden="true" className="relative h-96 w-full lg:hidden" />
-          <div aria-hidden="true" className="relative h-32 w-full lg:hidden" />
-          <div className="absolute inset-x-0 bottom-0 rounded-br-lg rounded-bl-lg bg-black/75 p-6 backdrop-blur-sm backdrop-filter sm:flex sm:items-center sm:justify-between lg:inset-x-auto lg:inset-y-0 lg:w-96 lg:flex-col lg:items-start lg:rounded-tl-lg lg:rounded-br-none">
-            <div>
-              <h2 className="text-xl font-bold text-white">
-                Workspace Collection
-              </h2>
-              <p className="mt-1 text-sm text-gray-300">
-                Upgrade your desk with objects that keep you organized and
-                clear-minded.
-              </p>
-            </div>
-            <a
-              href="#"
-              className="mt-6 flex shrink-0 items-center justify-center rounded-md border border-white/25 px-4 py-3 text-base font-medium text-white hover:bg-white/10 sm:mt-0 sm:ml-8 lg:ml-0 lg:w-full"
-            >
-              View the collection
-            </a>
-          </div>
+      {/* Pillars Explorer Section */}
+      <section className="max-w-6xl mx-auto px-4 py-16" aria-labelledby="pillars-title">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 id="pillars-title" className="text-3xl font-bold tracking-tight text-slate-800">
+            Pilar Jakarta Smart City
+          </h2>
+          <p className="mt-3 text-slate-600 text-sm">
+            Klik pilar pilar utama di bawah ini untuk melihat contoh implementasi teknologi digital cerdas di Jakarta.
+          </p>
         </div>
-      </div>
 
-      <div className="mx-auto max-w-2xl w-full px-4 py-5 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-          <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square">
-            <img
-              alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
-              src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="absolute size-full object-cover group-hover:opacity-75"
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-            <div className="absolute inset-0 flex items-end p-6">
-              <div>
-                <h3 className="font-semibold text-white">
-                  <a href="#">
-                    <span className="absolute inset-0" />
-                    New Arrivals
-                  </a>
-                </h3>
-                <p aria-hidden="true" className="mt-1 text-sm text-white">
-                  Shop now
-                </p>
-              </div>
-            </div>
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          {/* Pillar Selector Buttons */}
+          <div className="w-full lg:w-1/3 flex flex-col gap-3" role="tablist">
+            {SMART_PILLARS.map((pillar) => {
+              const PillarIcon = pillar.icon;
+              return (
+                <button
+                  key={pillar.id}
+                  onClick={() => setActivePillar(pillar.id)}
+                  aria-selected={activePillar === pillar.id}
+                  role="tab"
+                  className={`w-full flex items-start gap-4 p-5 text-left rounded-2xl border transition-all duration-200 outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer ${
+                    activePillar === pillar.id
+                      ? "bg-white border-indigo-500 shadow-md text-indigo-700 font-bold"
+                      : "bg-white/80 border-slate-200 text-slate-600 font-medium hover:bg-white"
+                  }`}
+                >
+                  <PillarIcon className={`size-6 shrink-0 mt-0.5 ${activePillar === pillar.id ? "text-indigo-600" : "text-slate-400"}`} />
+                  <div>
+                    <span className="block text-sm font-semibold text-slate-800">{pillar.title}</span>
+                    <span className="block text-xs font-normal text-slate-400 mt-1">{pillar.project}</span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
-          <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
-            <img
-              alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
-              src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="absolute size-full object-cover group-hover:opacity-75"
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-            <div className="absolute inset-0 flex items-end p-6">
-              <div>
-                <h3 className="font-semibold text-white">
-                  <a href="#">
-                    <span className="absolute inset-0" />
-                    Accessories
-                  </a>
-                </h3>
-                <p aria-hidden="true" className="mt-1 text-sm text-white">
-                  Shop now
-                </p>
-              </div>
+
+          {/* Pillar Active Content Screen */}
+          <div className="flex-1 w-full bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between">
+            <div className="space-y-6">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-800 border border-slate-200">
+                Pilar Terpilih
+              </span>
+              <h3 className="text-2xl font-bold text-slate-800 tracking-tight">{selectedPillar.title}</h3>
+              <p className="text-slate-600 leading-relaxed text-base">{selectedPillar.description}</p>
             </div>
-          </div>
-          <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
-            <img
-              alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
-              src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="absolute size-full object-cover group-hover:opacity-75"
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-            <div className="absolute inset-0 flex items-end p-6">
+
+            <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-4">
+              <div className="size-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600">
+                <CpuChipIcon className="size-5" />
+              </div>
               <div>
-                <h3 className="font-semibold text-white">
-                  <a href="#">
-                    <span className="absolute inset-0" />
-                    Workspace
-                  </a>
-                </h3>
-                <p aria-hidden="true" className="mt-1 text-sm text-white">
-                  Shop now
-                </p>
+                <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Inovasi Utama</span>
+                <span className="block text-sm font-bold text-slate-700 mt-0.5">{selectedPillar.project}</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* App Promo Showcase Section */}
+      <section className="bg-slate-100/60 border-y border-slate-200/50 py-16" aria-labelledby="showcase-title">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+          {/* Left Side: Mockup Content */}
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <div className="w-[280px] aspect-[9/19] bg-slate-900 rounded-[40px] p-3 shadow-2xl border-4 border-slate-800 relative">
+              {/* Speaker & camera bar */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl z-20 flex justify-center items-center">
+                <span className="size-2 rounded-full bg-slate-900 mr-2" />
+                <span className="w-10 h-1 rounded-full bg-slate-900" />
+              </div>
+              {/* Internal Screen mockup */}
+              <div className="w-full h-full bg-slate-950 rounded-[32px] overflow-hidden p-4 flex flex-col justify-between relative text-white font-sans">
+                <div className="space-y-4 pt-4">
+                  <div className="flex justify-between items-center text-[10px] text-slate-400">
+                    <span>JAKI App</span>
+                    <span>10:30 AM</span>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-indigo-400 font-bold uppercase tracking-wider">Aplikasi Warga</span>
+                    <h4 className="text-base font-extrabold text-slate-100">Jakarta Kini</h4>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="bg-white/10 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                      <span>📢 JakLapor (Lapor Ban)</span>
+                      <span className="text-[10px] bg-indigo-500 text-white px-2 py-0.5 rounded-full">Kirim</span>
+                    </div>
+                    <div className="bg-white/10 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                      <span>🚌 Rute TransJakarta</span>
+                      <span className="text-[10px] text-slate-400">Lihat</span>
+                    </div>
+                  </div>
+                </div>
+                {/* download buttons inside mock */}
+                <div className="space-y-1.5 pb-2">
+                  <span className="block text-[8px] text-slate-400 text-center uppercase font-bold tracking-widest">Tersedia Gratis</span>
+                  <div className="flex gap-1.5 justify-center">
+                    <div className="bg-white/15 rounded-lg px-2 py-1 text-[8px] font-semibold border border-white/10 text-center flex-1 cursor-pointer">Play Store</div>
+                    <div className="bg-white/15 rounded-lg px-2 py-1 text-[8px] font-semibold border border-white/10 text-center flex-1 cursor-pointer">App Store</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Informative Text */}
+          <div className="flex-1 space-y-6">
+            <h2 id="showcase-title" className="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">
+              Super-App JAKI (Jakarta Kini)
+            </h2>
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              JAKI mengintegrasikan ratusan layanan publik DKI Jakarta ke dalam satu genggaman tangan warga. Mulai dari pelaporan gangguan fasilitas kota, tracking transportasi publik, hingga informasi jaminan kesehatan.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              {JAKI_FEATURES.map((feat, idx) => (
+                <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200/50 shadow-xs">
+                  <h4 className="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                    <SparklesIcon className="size-4 text-indigo-500 shrink-0" />
+                    {feat.name}
+                  </h4>
+                  <p className="mt-2 text-slate-500 text-xs leading-relaxed">{feat.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
