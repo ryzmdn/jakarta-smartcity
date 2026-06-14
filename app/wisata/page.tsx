@@ -1,268 +1,279 @@
-const collections = [
+"use client";
+
+import { useState } from "react";
+import {
+  MagnifyingGlassIcon,
+  MapPinIcon,
+  ClockIcon,
+  SparklesIcon,
+  ChevronRightIcon,
+  CalendarIcon,
+} from "@heroicons/react/24/outline";
+
+const WISATA_TITLE = "Destinasi Wisata Jakarta";
+const WISATA_SUBTITLE = "Jelajahi perpaduan cagar budaya bersejarah, pusat hiburan modern, dan wisata bahari eksotis";
+const HERO_IMAGE = "https://www.iwarebatik.org/wp-content/uploads/2019/11/monas.jpg";
+
+const DESTINATIONS = [
   {
-    name: "Women's",
-    href: "#",
-    imageSrc:
-      "https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    imageAlt: "Woman wearing an off-white cotton t-shirt.",
+    id: "monas",
+    category: "historical",
+    name: "Monumen Nasional (Monas)",
+    location: "Gambir, Jakarta Pusat",
+    description: "Tugu peringatan setinggi 132 meter yang didirikan untuk mengenang perjuangan kemerdekaan. Di puncaknya terdapat cawan berlapis lembaran emas murni seberat 50 kg berbentuk lidah api.",
+    rating: "4.8",
+    image: "https://www.iwarebatik.org/wp-content/uploads/2019/11/monas.jpg",
+    imageAlt: "Tugu Monumen Nasional tegak berdiri di bawah langit biru",
   },
   {
-    name: "Men's",
-    href: "#",
-    imageSrc:
-      "https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    imageAlt: "Man wearing a charcoal gray cotton t-shirt.",
+    id: "kota-tua",
+    category: "historical",
+    name: "Kota Tua Jakarta",
+    location: "Pinangsia, Jakarta Barat",
+    description: "Kawasan bersejarah seluas 1,3 km persegi yang menampilkan gedung-gedung kolonial Belanda abad ke-17. Sangat ikonik dengan Lapangan Fatahillah, Museum Sejarah Jakarta, dan persewaan sepeda ontel.",
+    rating: "4.7",
+    image: "https://www.cimbniaga.co.id/content/dam/cimb/inspirasi/wisata-kota-tua-museum-fatahillah.webp",
+    imageAlt: "Museum Fatahillah dengan sepeda ontel warna-warni di halaman depan",
   },
   {
-    name: "Desk Accessories",
-    href: "#",
-    imageSrc:
-      "https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    imageAlt:
-      "Person sitting at a wooden desk with paper note organizer, pencil and tablet.",
+    id: "tmii",
+    category: "nature",
+    name: "Taman Mini Indonesia Indah",
+    location: "Cipayung, Jakarta Timur",
+    description: "Kawasan taman wisata budaya seluas 150 hektare yang merangkum kebudayaan bangsa Indonesia dalam miniatur kepulauan, aneka rumah adat (anjungan), pakaian tradisional, hingga museum iptek.",
+    rating: "4.7",
+    image: "https://www.nowjakarta.co.id/wp-content/uploads/2023/01/Taman-Mini-Indonesia-Jakarta-1.jpg",
+    imageAlt: "Danau kepulauan Indonesia di tengah kompleks TMII",
+  },
+  {
+    id: "kepulauan-seribu",
+    category: "nature",
+    name: "Kepulauan Seribu",
+    location: "Kabupaten Kepulauan Seribu",
+    description: "Gugusan pulau tropis indah di Teluk Jakarta yang menawarkan wisata bahari mulai dari snorkeling, diving, hingga penginapan resort eksotis di Pulau Macan, Pulau Pramuka, dan Pulau Pari.",
+    rating: "4.9",
+    image: "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
+    imageAlt: "Dermaga kayu dan air laut bening kehijauan di Kepulauan Seribu",
+  },
+  {
+    id: "ancol",
+    category: "modern",
+    name: "Dunia Fantasi (Dufan) Ancol",
+    location: "Pademangan, Jakarta Utara",
+    description: "Taman hiburan outdoor terbesar di Jakarta dengan puluhan wahana memicu adrenalin seperti Halilintar, Kora-kora, Niagara-gara, hingga Istana Boneka yang ramah anak.",
+    rating: "4.6",
+    image: "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2024/12/29/591e6cad-919d-4c23-95a5-0a7f6d2b866a-1735466532176-da6a7edce3a96e416b7f994f5bf87670.png",
+    imageAlt: "Pemandangan Bianglala besar Dufan di sore hari",
   },
 ];
 
-const incentives = [
-  {
-    name: "Free Shipping",
-    description:
-      "It's not actually free we just price it into the products. Someone's paying for it, and it's not us.",
-    imageSrc:
-      "https://tailwindui.com/plus-assets/img/ecommerce/icons/icon-delivery-light.svg",
-  },
-  {
-    name: "24/7 Customer Support",
-    description:
-      "Our AI chat widget is powered by a naive series of if/else statements. Guaranteed to irritate.",
-    imageSrc:
-      "https://tailwindui.com/plus-assets/img/ecommerce/icons/icon-chat-light.svg",
-  },
-  {
-    name: "Fast Shopping Cart",
-    description:
-      "Look how fast that cart is going. What does this mean for the actual experience? I don't know.",
-    imageSrc:
-      "https://tailwindui.com/plus-assets/img/ecommerce/icons/icon-fast-checkout-light.svg",
-  },
-  {
-    name: "Gift Cards",
-    description:
-      "Buy them for your friends, especially if they don't like our store. Free money for us, it's great.",
-    imageSrc:
-      "https://tailwindui.com/plus-assets/img/ecommerce/icons/icon-gift-card-light.svg",
-  },
+const CATEGORIES = [
+  { id: "all", label: "Semua Destinasi" },
+  { id: "historical", label: "Sejarah & Edukasi" },
+  { id: "nature", label: "Alam & Budaya" },
+  { id: "modern", label: "Rekreasi Modern" },
 ];
 
-const people = [
+const ITINERARIES = [
   {
-    name: "Leslie Alexander",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Toronto, Canada",
+    id: "one-day-heritage",
+    title: "Rute Sejarah 1 Hari",
+    steps: [
+      { time: "08:00 - 11:00", activity: "Mengeksplorasi Museum Sejarah Jakarta (Fatahillah) dan bersepeda ontel di Kota Tua." },
+      { time: "11:30 - 13:00", activity: "Makan siang kuliner legendaris Betawi di sekitar area Kota Tua." },
+      { time: "14:00 - 17:00", activity: "Mengunjungi Monumen Nasional (Monas) hingga naik ke cawan pelataran puncak." },
+    ],
   },
   {
-    name: "Michael Foster",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Glasgow, Scotland",
-  },
-  {
-    name: "Dries Vincent",
-    role: "Business Relations",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Niagara Falls, Canada",
-  },
-  {
-    name: "Lindsay Walton",
-    role: "Front-end Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "London, England",
-  },
-  {
-    name: "Courtney Henry",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Toronto, Canada",
-  },
-  {
-    name: "Tom Cook",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Toronto, Canada",
-  },
-  {
-    name: "Whitney Francis",
-    role: "Copywriter",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Toronto, Canada",
-  },
-  {
-    name: "Leonard Krasner",
-    role: "Senior Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    location: "Toronto, Canada",
+    id: "one-day-nature",
+    title: "Rute Alam 1 Hari",
+    steps: [
+      { time: "07:00 - 08:30", activity: "Menyeberang dari dermaga Marina Ancol menuju gugusan Kepulauan Seribu." },
+      { time: "09:00 - 12:00", activity: "Snorkeling dan foto underwater di sekitar terumbu karang Pulau Pari." },
+      { time: "13:00 - 16:00", activity: "Menikmati seafood bakar segar dan bersantai di hamparan pasir putih Pulau Macan." },
+    ],
   },
 ];
 
 export default function WisataPage() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeItinerary, setActiveItinerary] = useState("one-day-heritage");
+
+  const filteredDestinations = DESTINATIONS.filter((dest) => {
+    const matchesCategory = selectedCategory === "all" || dest.category === selectedCategory;
+    const matchesSearch = dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          dest.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          dest.location.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const selectedItinerary = ITINERARIES.find((i) => i.id === activeItinerary) || ITINERARIES[0];
+
   return (
-    <>
-      <div className="relative bg-white">
-        {/* Background image and overlap */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 hidden sm:flex sm:flex-col"
-        >
-          <div className="relative w-full flex-1 bg-gray-800">
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="size-full object-cover"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gray-900 opacity-50" />
-          </div>
-          <div className="h-32 w-full bg-white md:h-40 lg:h-48" />
-        </div>
-
-        <div className="relative mx-auto max-w-3xl px-4 pb-96 text-center sm:px-6 sm:pb-0 lg:px-8">
-          {/* Background image and overlap */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 flex flex-col sm:hidden"
-          >
-            <div className="relative w-full flex-1 bg-gray-800">
-              <div className="absolute inset-0 overflow-hidden">
-                <img
-                  alt=""
-                  src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="size-full object-cover"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gray-900 opacity-50" />
-            </div>
-            <div className="h-48 w-full bg-white" />
-          </div>
-          <div className="relative py-32">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Mid-Season Sale
-            </h1>
-            <div className="mt-4 sm:mt-6">
-              <a
-                href="#"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 font-medium text-white hover:bg-indigo-700"
-              >
-                Shop Collection
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <section
-          aria-labelledby="collection-heading"
-          className="relative -mt-96 sm:mt-0"
-        >
-          <h2 id="collection-heading" className="sr-only">
-            Collections
-          </h2>
-          <div className="mx-auto grid max-w-md grid-cols-1 gap-y-6 px-4 sm:max-w-7xl sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 sm:px-6 lg:gap-x-8 lg:px-8">
-            {collections.map((collection) => (
-              <div
-                key={collection.name}
-                className="group relative h-96 rounded-lg bg-white shadow-xl sm:aspect-4/5 sm:h-auto"
-              >
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 overflow-hidden rounded-lg"
-                >
-                  <div className="absolute inset-0 overflow-hidden group-hover:opacity-75">
-                    <img
-                      alt={collection.imageAlt}
-                      src={collection.imageSrc}
-                      className="size-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-                </div>
-                <div className="absolute inset-0 flex items-end rounded-lg p-6">
-                  <div>
-                    <p aria-hidden="true" className="text-sm text-white">
-                      Shop the collection
-                    </p>
-                    <h3 className="mt-1 font-semibold text-white">
-                      <a href={collection.href}>
-                        <span className="absolute inset-0" />
-                        {collection.name}
-                      </a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-
-      <div className="mx-auto max-w-7xl w-full px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:max-w-7xl">
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-12">
-            {incentives.map((incentive) => (
-              <div key={incentive.name} className="text-center">
-                <img
-                  alt=""
-                  src={incentive.imageSrc}
-                  className="h-24 w-auto mx-auto"
-                />
-                <h3 className="mt-6 text-sm font-medium text-gray-900">
-                  {incentive.name}
-                </h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  {incentive.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-            Our team
-          </h2>
-          <p className="mt-6 text-lg/8 text-gray-600">
-            We’re a dynamic group of individuals who are passionate about what
-            we do and dedicated to delivering the best results for our clients.
+    <main className="flex-1 bg-slate-50">
+      {/* Hero Section */}
+      <section className="relative h-[380px] flex items-center justify-center overflow-hidden bg-slate-900" aria-labelledby="page-title">
+        <img
+          alt="Latar belakang pemandangan ikonik tugu monumen nasional jakarta"
+          src={HERO_IMAGE}
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
+        <div className="relative max-w-4xl mx-auto px-6 text-center text-white z-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-300 ring-1 ring-inset ring-emerald-500/30 mb-4">
+            Destinasi Pilihan
+          </span>
+          <h1 id="page-title" className="text-4xl font-extrabold sm:text-5xl lg:text-6xl tracking-tight">
+            {WISATA_TITLE}
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-slate-200 font-light max-w-2xl mx-auto">
+            {WISATA_SUBTITLE}
           </p>
         </div>
+      </section>
 
-        <ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
-          {people.map((person) => (
-            <li key={person.name}>
-              <img
-                alt=""
-                src={person.imageUrl}
-                className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5"
-              />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
-                {person.name}
-              </h3>
-              <p className="text-base/7 text-gray-600">{person.role}</p>
-              <p className="text-sm/6 text-gray-500">{person.location}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+      {/* Interactive Control Center */}
+      <section className="max-w-6xl mx-auto px-4 py-8 relative z-20 -mt-12" aria-label="Filter Pencarian Destinasi">
+        <div className="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          {/* Search Box */}
+          <div className="relative flex-1 max-w-md">
+            <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Cari tempat wisata, sejarah, mall..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-12 pr-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200"
+            />
+          </div>
+
+          {/* Categories Tablist */}
+          <div className="flex flex-wrap gap-2" role="tablist">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                role="tab"
+                aria-selected={selectedCategory === cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-5 py-2.5 rounded-2xl text-xs font-semibold transition-all duration-200 outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer ${
+                  selectedCategory === cat.id
+                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/25"
+                    : "bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200/60"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tourist Grid */}
+      <section className="max-w-6xl mx-auto px-4 py-8" aria-labelledby="grid-title">
+        <h2 id="grid-title" className="sr-only">Daftar Tempat Wisata Terbaik</h2>
+        {filteredDestinations.length === 0 ? (
+          <div className="text-center py-16 bg-white rounded-3xl border border-slate-100 shadow-sm">
+            <SparklesIcon className="size-12 text-slate-300 mx-auto mb-4" />
+            <p className="text-slate-500 font-medium">Wisata yang Anda cari tidak ditemukan. Coba kata kunci lain!</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredDestinations.map((dest) => (
+              <article
+                key={dest.id}
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md border border-slate-100 transition-all duration-300 flex flex-col h-full"
+              >
+                <div className="relative aspect-4/3 overflow-hidden bg-slate-100">
+                  <img
+                    src={dest.image}
+                    alt={dest.imageAlt}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-white/95 text-slate-800 shadow-sm">
+                    ⭐ {dest.rating}
+                  </div>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-1 text-slate-400 text-xs font-semibold">
+                      <MapPinIcon className="size-4 shrink-0 text-slate-400" />
+                      {dest.location}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 tracking-tight">{dest.name}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{dest.description}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Interactive Trip Planner Section */}
+      <section className="bg-slate-100/60 border-y border-slate-200/50 py-16" aria-labelledby="planner-title">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2 id="planner-title" className="text-3xl font-bold tracking-tight text-slate-800">
+              Rencana Perjalanan (Itinerary)
+            </h2>
+            <p className="mt-3 text-slate-600 text-sm">
+              Gunakan rancangan rute perjalanan pintar kami untuk memaksimalkan liburan 1 hari penuh di Jakarta.
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            {/* Itinerary Selectors */}
+            <div className="w-full lg:w-1/3 flex flex-col gap-2" role="tablist">
+              {ITINERARIES.map((itinerary) => (
+                <button
+                  key={itinerary.id}
+                  onClick={() => setActiveItinerary(itinerary.id)}
+                  aria-selected={activeItinerary === itinerary.id}
+                  role="tab"
+                  className={`w-full flex items-center justify-between p-5 text-left rounded-2xl border transition-all duration-200 outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer ${
+                    activeItinerary === itinerary.id
+                      ? "bg-white border-emerald-500 shadow-md text-emerald-700 font-bold"
+                      : "bg-white/80 border-slate-200 text-slate-600 font-medium hover:bg-white"
+                  }`}
+                >
+                  <span className="flex items-center gap-3">
+                    <CalendarIcon className="size-5 shrink-0 text-slate-400" />
+                    {itinerary.title}
+                  </span>
+                  <ChevronRightIcon className="size-4" />
+                </button>
+              ))}
+            </div>
+
+            {/* Itinerary Timeline */}
+            <div className="flex-1 w-full bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100">
+              <h3 className="text-xl font-bold text-slate-800 mb-6">{selectedItinerary.title}</h3>
+              <div className="space-y-6">
+                {selectedItinerary.steps.map((step, idx) => (
+                  <div key={idx} className="flex gap-4 items-start relative pb-6 last:pb-0">
+                    {/* timeline line */}
+                    {idx < selectedItinerary.steps.length - 1 && (
+                      <span className="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-100" />
+                    )}
+                    {/* circle icon */}
+                    <div className="size-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0 text-emerald-600">
+                      <ClockIcon className="size-4" />
+                    </div>
+                    {/* details */}
+                    <div className="space-y-1">
+                      <span className="inline-block text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">
+                        {step.time}
+                      </span>
+                      <p className="text-slate-700 text-sm font-medium leading-relaxed">{step.activity}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
