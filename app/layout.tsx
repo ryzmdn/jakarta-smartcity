@@ -4,6 +4,7 @@ import { AppHeader } from "@/components/app-header";
 import { AppFooter } from "@/components/app-footer";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import { AppCallToAction } from "@/components/app-cta";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plusjakarta-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <main className="size-full min-w-xs max-w-7xl mx-auto bg-transparent">
           {children}
         </main>
+        <AppCallToAction />
         <AppFooter />
       </body>
     </html>
