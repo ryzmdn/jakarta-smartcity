@@ -7,79 +7,229 @@ import {
   ClockIcon,
   CpuChipIcon,
   CheckIcon,
+  UsersIcon,
+  GlobeAsiaAustraliaIcon,
 } from "@heroicons/react/24/outline";
+import { Fragment } from 'react'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+
+const tabs = [
+  {
+    name: 'Transjakarta',
+    features: [
+      {
+        name: 'Adaptive and modular',
+        description:
+          'The Organize base set allows you to configure and evolve your setup as your items and habits change. The included trays and optional add-ons are easily rearranged to achieve that perfect setup.',
+        imageSrc: 'https://www.jakarta.go.id/uploads/contents/content--20230406021851.jpeg',
+        imageAlt: 'Maple organizer base with slots, supporting white polycarbonate trays of various sizes.',
+      },
+    ],
+  },
+  {
+    name: 'LRT Jakarta',
+    features: [
+      {
+        name: 'Natural wood options',
+        description:
+          'Organize has options for rich walnut and bright maple base materials. Accent your desk with a contrasting material, or match similar woods for a calm and cohesive look. Every base is hand sanded and finished.',
+        imageSrc: 'https://asset.kompas.com/crops/exmdHqy6wXmVgRnS-aSWCoTbhAw=/115x75:1274x847/1200x800/data/photo/2023/09/16/6504f38939e78.jpeg',
+        imageAlt:
+          'Walnut organizer base with pen, sticky note, phone, and bin trays, next to modular drink coaster attachment.',
+      },
+    ],
+  },
+  {
+    name: 'KAI Commuter',
+    features: [
+      {
+        name: 'Helpful around the home',
+        description:
+          "Our customers use Organize throughout the house to bring efficiency to many daily routines. Enjoy Organize in your workspace, kitchen, living room, entry way, garage, and more. We can't wait to see how you'll use it!",
+        imageSrc: 'https://kci.id/app/sam/assets/about_us/c8b78de448ca4223c258358a4db09cce.jpeg',
+        imageAlt: 'Walnut organizer base with white polycarbonate trays in the kitchen with various kitchen utensils.',
+      },
+    ],
+  },
+  {
+    name: 'MRT Jakarta',
+    features: [
+      {
+        name: "Everything you'll need",
+        description:
+          'The Organize base set includes the pen, phone, small, and large trays to help you group all your essential items. Expand your set with the drink coaster and headphone stand add-ons.',
+        imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/MRTset3.jpg',
+        imageAlt: 'Walnut organizer system on black leather desk mat on top of white desk.',
+      },
+    ],
+  },
+]
 
 const CITY_NAME = "DKI Jakarta";
 const CITY_SUBTITLE = "Pusat Kolaborasi, Inovasi, dan Budaya Nusantara";
-const HERO_IMAGE = "https://images.unsplash.com/photo-1718729362445-51d2da1ee7a7?q=80&w=1200&auto=format&fit=crop";
-
-const STATS_DATA = [
-  { label: "Estimasi Populasi", value: "10.6 Juta+" },
-  { label: "Transportasi Terintegrasi", value: "4 Sistem Utama" },
-  { label: "Wilayah Administratif", value: "5 Kota & 1 Kabupaten" },
-];
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1718729362445-51d2da1ee7a7?q=80&w=1200&auto=format&fit=crop";
 
 const ADVANTAGES_DATA = [
   {
     title: "Aksesibilitas Terbaik",
-    description: "Sistem transportasi publik terintegrasi penuh seperti MRT, LRT, TransJakarta, dan Commuter Line memudahkan mobilitas warga dan turis.",
+    description:
+      "Sistem transportasi publik terintegrasi penuh seperti MRT, LRT, TransJakarta, dan Commuter Line memudahkan mobilitas warga dan turis.",
   },
   {
     title: "Kota Pintar & Digital",
-    description: "Segala urusan birokrasi, laporan fasilitas umum, hingga pantauan banjir terintegrasi secara cerdas lewat platform super-app JAKI.",
+    description:
+      "Segala urusan birokrasi, laporan fasilitas umum, hingga pantauan banjir terintegrasi secara cerdas lewat platform super-app JAKI.",
   },
   {
     title: "Pusat Ekonomi & Kreatif",
-    description: "Jakarta menawarkan peluang tanpa batas dengan dukungan infrastruktur bisnis dan fasilitas publik ramah komunitas digital.",
+    description:
+      "Jakarta menawarkan peluang tanpa batas dengan dukungan infrastruktur bisnis dan fasilitas publik ramah komunitas digital.",
   },
 ];
 
 const SECTIONS_DATA = [
   {
-    id: "overview",
-    title: "Selayang Pandang",
-    icon: BuildingOfficeIcon,
-    image: "https://images.unsplash.com/photo-1718729362445-51d2da1ee7a7?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Gedung-gedung pencakar langit di sepanjang jalan Sudirman-Thamrin, Jakarta",
-    heading: "Menuju Gerbang Kota Global",
-    content: "Jakarta kini bertransformasi menjadi Kota Global yang inklusif, tangguh, dan berkelanjutan. Meskipun mengalami transisi administratif, Jakarta tetap menjadi episentrum ekonomi nasional, pusat diplomasi regional, serta magnet kreativitas dan inovasi yang tak pernah padam.",
-  },
-  {
-    id: "history",
-    title: "Sejarah Singkat",
-    icon: ClockIcon,
-    image: "https://www.cimbniaga.co.id/content/dam/cimb/inspirasi/wisata-kota-tua-museum-fatahillah.webp",
-    imageAlt: "Kawasan Kota Tua Jakarta yang bersejarah dengan arsitektur kolonial",
-    heading: "Rentang Waktu Peradaban",
-    content: "Bermula dari pelabuhan Sunda Kelapa yang ramai pada abad ke-14, wilayah ini berkembang menjadi Jayakarta, Batavia, hingga akhirnya ditetapkan sebagai ibu kota negara dengan nama Jakarta. Setiap era meninggalkan jejak sejarah yang kini mewarnai budaya dan arsitektur kota.",
-  },
-  {
     id: "geography",
     title: "Geografi & Administratif",
     icon: MapIcon,
-    image: "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
     imageAlt: "Kepulauan Seribu dengan keindahan alam laut tropis",
     heading: "Bentang Alam dari Darat hingga Laut",
-    content: "Dengan luas daratan sekitar 661,5 km², DKI Jakarta terbagi menjadi 5 Kota Administrasi (Pusat, Utara, Barat, Selatan, Timur) serta 1 Kabupaten Administrasi, yaitu Kepulauan Seribu yang menyuguhkan keindahan wisata bahari eksotis.",
+    content:
+      "Dengan luas daratan sekitar 661,5 km², DKI Jakarta terbagi menjadi 5 Kota Administrasi (Pusat, Utara, Barat, Selatan, Timur) serta 1 Kabupaten Administrasi, yaitu Kepulauan Seribu yang menyuguhkan keindahan wisata bahari eksotis.",
   },
   {
     id: "smartcity",
     title: "Visi Smart City",
     icon: CpuChipIcon,
-    image: "https://images.unsplash.com/photo-1562367072-fea5c7eb8748?q=80&w=800&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1562367072-fea5c7eb8748?q=80&w=800&auto=format&fit=crop",
     imageAlt: "Layar monitor pusat komando kendali data Jakarta Smart City",
     heading: "Efisiensi Melalui Teknologi Cerdas",
-    content: "Melalui inisiatif Jakarta Smart City (JSC), pemerintah menghadirkan solusi digital berbasis data untuk mengatasi tantangan perkotaan. Integrasi IoT, sensor lalu lintas, serta pelaporan warga secara real-time mewujudkan tata kelola kota yang responsif dan transparan.",
+    content:
+      "Melalui inisiatif Jakarta Smart City (JSC), pemerintah menghadirkan solusi digital berbasis data untuk mengatasi tantangan perkotaan. Integrasi IoT, sensor lalu lintas, serta pelaporan warga secara real-time mewujudkan tata kelola kota yang responsif dan transparan.",
   },
 ];
 
+const perks = [
+  {
+    name: "Estimasi Populasi",
+    description: "10.6 Juta+",
+    icon: UsersIcon,
+  },
+  {
+    name: "Transportasi Terintegrasi",
+    description: "4 Sistem Utama",
+    icon: MapIcon,
+  },
+  {
+    name: "Wilayah Administratif",
+    description: "5 Kota & 1 Kabupaten",
+    icon: GlobeAsiaAustraliaIcon,
+  },
+];
+
+const features = [
+  {
+    name: "Menuju Gerbang Kota Global",
+    description:
+      "Jakarta kini bertransformasi menjadi Kota Global yang inklusif, tangguh, dan berkelanjutan. Meskipun mengalami transisi administratif, Jakarta tetap menjadi episentrum ekonomi nasional, pusat diplomasi regional, serta magnet kreativitas dan inovasi yang tak pernah padam.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
+    imageAlt:
+      "White canvas laptop sleeve with neutral felt interior, silver zipper, and tan leather zipper pull.",
+  },
+  {
+    name: "Rentang Waktu Peradaban",
+    description:
+      "Bermula dari pelabuhan Sunda Kelapa yang ramai pada abad ke-14, wilayah ini berkembang menjadi Jayakarta, Batavia, hingga akhirnya ditetapkan sebagai ibu kota negara dengan nama Jakarta. Setiap era meninggalkan jejak sejarah yang kini mewarnai budaya dan arsitektur kota.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
+    imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
+  },
+];
+
+const timeline = [
+  {
+    name: "Founded company",
+    description:
+      "Nihil aut nam. Dignissimos a pariatur et quos omnis. Aspernatur asperiores et dolorem dolorem optio voluptate repudiandae.",
+    date: "Aug 2021",
+    dateTime: "2021-08",
+  },
+  {
+    name: "Secured $65m in funding",
+    description:
+      "Provident quia ut esse. Vero vel eos repudiandae aspernatur. Cumque minima impedit sapiente a architecto nihil.",
+    date: "Dec 2021",
+    dateTime: "2021-12",
+  },
+  {
+    name: "Released beta",
+    description:
+      "Sunt perspiciatis incidunt. Non necessitatibus aliquid. Consequatur ut officiis earum eum quia facilis. Hic deleniti dolorem quia et.",
+    date: "Feb 2022",
+    dateTime: "2022-02",
+  },
+  {
+    name: "Global launch of product",
+    description:
+      "Ut ipsa sint distinctio quod itaque nam qui. Possimus aut unde id architecto voluptatem hic aut pariatur velit.",
+    date: "Dec 2022",
+    dateTime: "2022-12",
+  },
+];
+
+const people = [
+  {
+    name: "Jakarta Barat",
+    role: "West Jakarta, Kebonjeruk, West Jakarta City, Jakarta",
+    imageUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126937.01276221518!2d106.67485684302311!3d-6.159991597165707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7c9d110d719%3A0x300c5e82dd4b8a0!2sWest%20Jakarta%2C%20Kebonjeruk%2C%20West%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1781622538056!5m2!1sen!2sid",
+  },
+  {
+    name: "Jakarta Pusat",
+    role: "Central Jakarta, Central Jakarta City, Jakarta",
+    imageUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63465.84333880962!2d106.79526462411086!3d-6.182226079822502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f436b8c94b07%3A0x6ea6d5398b7c82f6!2sCentral%20Jakarta%2C%20Central%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1781622749348!5m2!1sen!2sid",
+  },
+  {
+    name: "Jakarta Timur",
+    role: "East Jakarta, East Jakarta City, Jakarta",
+    imageUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253825.43284071618!2d106.74020433755702!3d-6.260781083248743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f2d148fbe713%3A0x6e667d52ebedf5a9!2sEast%20Jakarta%2C%20East%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1781622899090!5m2!1sen!2sid",
+  },
+  {
+    name: "Jakarta Selatan",
+    role: "South Jakarta, South Jakarta City, Jakarta",
+    imageUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.08080611257!2d106.71967679481901!3d-6.283929462250564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ec2422b0b3%3A0x39a0d0fe47404d02!2sSouth%20Jakarta%2C%20South%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1781622950499!5m2!1sen!2sid",
+  },
+  {
+    name: "Kepulauan Seribu",
+    role: "Kepulauan Seribu Regency, Jakarta",
+    imageUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d737576.199694813!2d106.17911345442984!3d-5.5418494800391285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e41d68cd396621f%3A0xa06e871c66df72b3!2sKepulauan%20Seribu%20Regency%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1781622991994!5m2!1sen!2sid",
+  },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 export default function TentangKotaPage() {
   const [activeTab, setActiveTab] = useState("overview");
-  const activeSection = SECTIONS_DATA.find((s) => s.id === activeTab) || SECTIONS_DATA[0];
+  const activeSection =
+    SECTIONS_DATA.find((s) => s.id === activeTab) || SECTIONS_DATA[0];
 
   return (
-    <main className="flex-1 bg-slate-50">
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden bg-slate-900" aria-labelledby="hero-title">
+    <>
+      <section
+        className="relative h-[400px] flex items-center justify-center overflow-hidden bg-slate-900"
+        aria-labelledby="hero-title"
+      >
         <img
           alt={`Latar belakang pemandangan kota ${CITY_NAME}`}
           src={HERO_IMAGE}
@@ -90,7 +240,10 @@ export default function TentangKotaPage() {
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-sky-500/20 text-sky-300 ring-1 ring-inset ring-sky-500/30 mb-4">
             Mengenal Ibu Kota
           </span>
-          <h1 id="hero-title" className="text-4xl font-extrabold sm:text-5xl lg:text-6xl tracking-tight">
+          <h1
+            id="hero-title"
+            className="text-4xl font-extrabold sm:text-5xl lg:text-6xl tracking-tight"
+          >
             {CITY_NAME}
           </h1>
           <p className="mt-4 text-lg sm:text-xl text-slate-200 font-light max-w-2xl mx-auto">
@@ -99,97 +252,265 @@ export default function TentangKotaPage() {
         </div>
       </section>
 
-      <section className="relative z-20 -mt-16 max-w-6xl mx-auto px-4" aria-label="Statistik Kota">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 bg-white rounded-2xl p-6 shadow-xl border border-slate-100">
-          {STATS_DATA.map((stat, idx) => (
-            <div key={idx} className="text-center sm:text-left sm:px-6 sm:first:pl-0 sm:last:pr-0 sm:border-r sm:last:border-r-0 border-slate-100 py-4 sm:py-2">
-              <dt className="text-sm font-medium text-slate-500">{stat.label}</dt>
-              <dd className="mt-2 text-3xl font-bold tracking-tight text-slate-800">{stat.value}</dd>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-4 py-16" aria-labelledby="interactive-section-title">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 id="interactive-section-title" className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
-            Eksplorasi Profil Kota
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Pilih kategori untuk melihat informasi mendalam mengenai perkembangan dan sejarah kota kami.
-          </p>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
-          <nav className="w-full lg:w-1/4 flex flex-col gap-2 bg-white p-3 rounded-2xl shadow-sm border border-slate-100" aria-label="Menu Profil Kota">
-            {SECTIONS_DATA.map((section) => {
-              const IconComponent = section.icon;
-              const isSelected = activeTab === section.id;
-              return (
-                <button
-                  key={section.id}
-                  onClick={() => setActiveTab(section.id)}
-                  aria-selected={isSelected}
-                  role="tab"
-                  className={`w-full flex items-center gap-3.5 px-4 py-3.5 text-left rounded-xl text-sm font-semibold transition-all duration-200 outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 ${
-                    isSelected
-                      ? "bg-sky-600 text-white shadow-md shadow-sky-600/20"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                  }`}
-                >
-                  <IconComponent className={`size-5 shrink-0 ${isSelected ? "text-white" : "text-slate-400"}`} />
-                  {section.title}
-                </button>
-              );
-            })}
-          </nav>
-
-          <div className="flex-1 w-full bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100 min-h-[400px] flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 space-y-4">
-              <h3 className="text-2xl font-bold text-slate-800 tracking-tight">
-                {activeSection.heading}
-              </h3>
-              <p className="text-slate-600 leading-relaxed text-base">
-                {activeSection.content}
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 shrink-0">
-              <img
-                src={activeSection.image}
-                alt={activeSection.imageAlt}
-                className="w-full aspect-[4/3] object-cover rounded-2xl shadow-md border border-slate-100"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-100/60 border-y border-slate-200/50 py-16" aria-labelledby="advantages-title">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 id="advantages-title" className="text-3xl font-bold tracking-tight text-slate-800">
-              Mengapa Mengunjungi Jakarta?
-            </h2>
-            <p className="mt-3 text-slate-600">
-              Jakarta memadukan kemudahan modernitas digital dengan pesona budaya tradisional yang hangat.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {ADVANTAGES_DATA.map((advantage, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-150 flex gap-4">
-                <div className="shrink-0 flex items-center justify-center size-10 rounded-full bg-sky-50 text-sky-600">
-                  <CheckIcon className="size-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-800">{advantage.title}</h3>
-                  <p className="mt-2 text-slate-600 text-sm leading-relaxed">{advantage.description}</p>
+      <section
+        className="relative z-20 -mt-16 max-w-6xl mx-auto px-4"
+        aria-label="Statistik Kota"
+      >
+        <div className="mx-auto max-w-7xl bg-neutral-50 rounded-2xl shadow-md border border-neutral-300 lg:py-8">
+          <div className="lg:flex lg:justify-center divide-y divide-neutral-300 lg:divide-x lg:divide-y-0">
+            {perks.map((perk, perkIdx) => (
+              <div key={perkIdx} className="py-8 lg:w-1/3 lg:flex-none lg:py-0">
+                <div className="mx-auto flex max-w-xs items-center px-4 lg:max-w-none lg:px-8">
+                  <perk.icon
+                    aria-hidden="true"
+                    className="size-8 shrink-0 text-neutral-900"
+                  />
+                  <div className="ml-4 flex flex-auto flex-col-reverse">
+                    <h3 className="font-medium text-neutral-900">
+                      {perk.name}
+                    </h3>
+                    <p className="text-sm text-neutral-500">
+                      {perk.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-    </main>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Our mission</h2>
+          <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+            <div className="lg:w-full lg:max-w-4xl lg:flex-auto">
+              <p className="text-xl/8 text-gray-600">
+                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam
+                eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget.
+                Eleifend egestas fringilla sapien.
+              </p>
+              <p className="mt-10 max-w-3xl text-base/7 text-gray-700">
+                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
+                vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
+                erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
+                semper sed amet vitae sed turpis id.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+            We approach work as a place to make the world better
+          </h2>
+          <p className="mt-6 text-base/7 text-gray-600">
+            Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras
+            purus nibh cursus sit eu in id. Integer vel nibh.
+          </p>
+        </div>
+        <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-50 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start">
+            <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">250k</p>
+            <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
+              <p className="text-lg font-semibold tracking-tight text-gray-900">Users on the platform</p>
+              <p className="mt-2 text-base/7 text-gray-600">Vel labore deleniti veniam consequuntur sunt nobis.</p>
+            </div>
+          </div>
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44">
+            <p className="flex-none text-3xl font-bold tracking-tight text-white">$8.9 billion</p>
+            <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
+              <p className="text-lg font-semibold tracking-tight text-white">
+                We’re proud that our customers have made over $8 billion in total revenue.
+              </p>
+              <p className="mt-2 text-base/7 text-gray-400">
+                Eu duis porta aliquam ornare. Elementum eget magna egestas.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-indigo-600 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
+            <p className="flex-none text-3xl font-bold tracking-tight text-white">401,093</p>
+            <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
+              <p className="text-lg font-semibold tracking-tight text-white">Transactions this year</p>
+              <p className="mt-2 text-base/7 text-indigo-200">
+                Eu duis porta aliquam ornare. Elementum eget magna egestas. Eu duis porta aliquam ornare.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-2xl px-4 py-20 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mt-16 space-y-16">
+          {features.map((feature, featureIdx) => (
+            <div
+              key={feature.name}
+              className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8"
+            >
+              <div
+                className={classNames(
+                  featureIdx % 2 === 0
+                    ? "lg:col-start-1"
+                    : "lg:col-start-8 xl:col-start-9",
+                  "mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4",
+                )}
+              >
+                <h3 className="text-xl font-semibold text-neutral-900">
+                  {feature.name}
+                </h3>
+                <p className="mt-2 text-neutral-500 leading-7">
+                  {feature.description}
+                </p>
+              </div>
+              <div
+                className={classNames(
+                  featureIdx % 2 === 0
+                    ? "lg:col-start-6 xl:col-start-5"
+                    : "lg:col-start-1",
+                  "flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8",
+                )}
+              >
+                <img
+                  alt={feature.imageAlt}
+                  src={feature.imageSrc}
+                  className="aspect-5/2 w-full rounded-lg bg-neutral-100 object-cover"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl bg-blue-600 px-4 py-24 sm:px-6 lg:px-8 xl:rounded-4xl">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
+          {timeline.map((item) => (
+            <div key={item.name}>
+              <time
+                dateTime={item.dateTime}
+                className="flex items-center text-sm/6 font-semibold text-neutral-200"
+              >
+                <svg
+                  viewBox="0 0 4 4"
+                  aria-hidden="true"
+                  className="mr-4 size-1 flex-none"
+                >
+                  <circle r={2} cx={2} cy={2} fill="currentColor" />
+                </svg>
+                {item.date}
+                <div
+                  aria-hidden="true"
+                  className="absolute -ml-2 h-px w-screen -translate-x-full bg-neutral-100/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                />
+              </time>
+              <p className="mt-6 text-lg/8 font-semibold tracking-tight text-neutral-100">
+                {item.name}
+              </p>
+              <p className="mt-1 text-base/7 text-neutral-300">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section className="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">
+        <div className="mx-auto max-w-2xl px-4 lg:max-w-none">
+          <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-2">
+            <div>
+              <h2 className="text-4xl font-bold tracking-tight text-neutral-900">
+                Bentang Alam dari Darat hingga Laut
+              </h2>
+              <p className="mt-4 text-neutral-500">
+                Dengan luas daratan sekitar 661,5 km², DKI Jakarta terbagi
+                menjadi 5 Kota Administrasi (Pusat, Utara, Barat, Selatan,
+                Timur) serta 1 Kabupaten Administrasi, yaitu Kepulauan Seribu
+                yang menyuguhkan keindahan wisata bahari eksotis.
+              </p>
+            </div>
+            <img
+              alt=""
+              src="https://tailwindui.com/plus-assets/img/ecommerce-images/incentives-07-hero.jpg"
+              className="aspect-3/2 w-full rounded-2xl bg-neutral-100 object-cover"
+            />
+          </div>
+
+          <ul
+            className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+          >
+            {people.map((person) => (
+              <li key={person.name}>
+                <iframe
+                  src={person.imageUrl}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="aspect-3/2 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5 shadow-sm"
+                />
+                <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-neutral-900">
+                  {person.name}
+                </h3>
+                <p className="text-base/7 text-neutral-600">{person.role}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="features-heading" className="mx-auto max-w-7xl py-32 sm:px-2 lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0">
+          <div className="max-w-3xl">
+            <h2 id="features-heading" className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+              Moda Transportasi Jakarta
+            </h2>
+            <p className="mt-4 text-neutral-500">
+              The Organize modular system offers endless options for arranging your favorite and most used items. Keep
+              everything at reach and in its place, while dressing up your workspace.
+            </p>
+          </div>
+
+          <TabGroup className="mt-4">
+            <div className="-mx-4 flex overflow-x-auto sm:mx-0">
+              <div className="flex-auto border-b border-neutral-200 px-4 sm:px-0">
+                <TabList className="-mb-px flex space-x-10">
+                  {tabs.map((tab) => (
+                    <Tab
+                      key={tab.name}
+                      className="border-b-2 border-transparent py-3 text-sm font-medium whitespace-nowrap text-neutral-500 hover:border-neutral-300 hover:text-neutral-700 data-selected:border-indigo-500 data-selected:text-indigo-600"
+                    >
+                      {tab.name}
+                    </Tab>
+                  ))}
+                </TabList>
+              </div>
+            </div>
+
+            <TabPanels as={Fragment}>
+              {tabs.map((tab) => (
+                <TabPanel key={tab.name} className="space-y-16 pt-10 lg:pt-16">
+                  {tab.features.map((feature) => (
+                    <div key={feature.name} className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8">
+                      <div className="mt-6 lg:col-span-5 lg:mt-0">
+                        <h3 className="text-lg font-medium text-neutral-900">{feature.name}</h3>
+                        <p className="mt-2 text-sm text-neutral-500">{feature.description}</p>
+                      </div>
+                      <div className="lg:col-span-7">
+                        <img
+                          alt={feature.imageAlt}
+                          src={feature.imageSrc}
+                          loading="lazy"
+                          className="aspect-2/1 w-full rounded-lg bg-neutral-100 object-cover sm:aspect-5/2"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </TabPanel>
+              ))}
+            </TabPanels>
+          </TabGroup>
+        </div>
+      </section>
+    </>
   );
 }
