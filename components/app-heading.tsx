@@ -62,7 +62,7 @@ export function AppHeading({
           <div className="h-48 w-full bg-neutral-50" />
         </div>
 
-        <div className="relative py-32">
+        <div className="relative py-40">
           <h1 className="text-4xl font-bold tracking-tight text-neutral-50 sm:text-5xl md:text-6xl">
             {title}
           </h1>

@@ -52,6 +52,7 @@ const METRICS_DATA = [
   { label: "JakWifi Gratis", value: "10,500+ Titik" },
   { label: "Laporan CRM Selesai", value: "98.7% Tuntas" },
   { label: "Pengguna Transportasi Harian", value: "1.3 Juta+" },
+  { label: "Pengguna Transportasi", value: "1.3 Juta+" },
 ];
 
 const FAQS = [
@@ -101,28 +102,57 @@ export default function Home() {
         collections={dataKoleksi}
       />
 
-      <section className="mx-auto max-w-7xl my-10 px-4 py-8 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-4xl font-semibold tracking-tight text-balance text-neutral-900 sm:text-5xl">
-            Trusted by creators worldwide
+      <section className="space-y-28 mx-auto max-w-7xl my-20 px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+            Our mission
           </h2>
-          <p className="mt-4 text-lg/8 text-neutral-600">
-            Lorem ipsum dolor sit amet consect adipisicing possimus.
-          </p>
-        </div>
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center my-20 lg:grid-cols-3">
-          {METRICS_DATA.map((stat) => (
-            <div
-              key={stat.label}
-              className="mx-auto flex max-w-xs flex-col gap-y-4"
-            >
-              <dt className="text-base/7 text-neutral-600">{stat.label}</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-                {stat.value}
-              </dd>
+          <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+            <div className="lg:w-full lg:max-w-3xl lg:flex-auto">
+              <p className="text-xl/8 text-gray-600">
+                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
+                sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
+                id at vitae feugiat egestas ac. Diam nulla orci at in viverra
+                scelerisque eget. Eleifend egestas fringilla sapien.
+              </p>
+              <p className="mt-10 max-w-2xl text-base/7 text-gray-700">
+                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
+                risus enim. Mattis mauris semper sed amet vitae sed turpis id.
+                Id dolor praesent donec est. Odio penatibus risus viverra tellus
+                varius sit neque erat velit. Faucibus commodo massa rhoncus,
+                volutpat. Dignissim sed eget risus enim. Mattis mauris semper
+                sed amet vitae sed turpis id.
+              </p>
             </div>
+            <div className="lg:flex lg:flex-auto lg:justify-center">
+              <div>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwgqMD0KT8l3slbHqK9-fe3AQ_JvMbOoUuw&s"
+                  alt=""
+                  className="aspect-video"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul className="grid grid-cols-1 gap-x-12 gap-y-16 text-center lg:grid-cols-4">
+          {METRICS_DATA.map((stat) => (
+            <li
+              key={stat.label}
+              className="flex flex-col gap-y-4 max-w-xs text-left"
+            >
+              <h3 className="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
+                {stat.value}
+              </h3>
+              <p className="text-base/7 text-neutral-600">{stat.label}</p>
+
+              <div className="text-sm/6 text-neutral-600 mt-7">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident similique nulla adipisci distinctio aut alias consectetur natus. Numquam earum cupiditate at impedit voluptatum sapiente, ullam neque iste provident obcaecati blanditiis!</p>
+              </div>
+            </li>
           ))}
-        </dl>
+        </ul>
       </section>
 
       <section
@@ -144,7 +174,10 @@ export default function Home() {
 
         <div className="grid mt-6 space-y-12 lg:grid-cols-3 lg:space-y-0 lg:gap-x-6">
           {PORTAL_LINKS.map((link, index) => (
-            <div key={link.title} className={cn(index === 4 && "col-span-2", "group relative")}>
+            <div
+              key={link.title}
+              className={cn(index === 4 && "col-span-2", "group relative")}
+            >
               <img
                 alt={link.image}
                 src={link.image}
