@@ -2,9 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDownIcon, CheckBadgeIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  CheckBadgeIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 import { AppHeading } from "@/components/app-heading";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const HERO_TITLE = "Selamat Datang di Masa Depan Jakarta";
 const HERO_IMAGE =
@@ -66,6 +71,39 @@ const FAQS = [
   },
 ];
 
+const people = [
+  {
+    name: "Open Space",
+    role: 50,
+    imageUrl:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Kesehatan & Olahraga",
+    role: 121,
+    imageUrl:
+      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Kamp Musim Panas",
+    role: 62,
+    imageUrl:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Grup Komunitas",
+    role: 89,
+    imageUrl:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Kreasi dan Acara",
+    role: 20,
+    imageUrl:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+];
+
 const dataKoleksi = [
   {
     name: "Kuliner Khas Betawi",
@@ -104,18 +142,18 @@ export default function Home() {
 
       <section className="space-y-28 mx-auto max-w-7xl my-20 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl">
             Our mission
           </h2>
           <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-3xl lg:flex-auto">
-              <p className="text-xl/8 text-gray-600">
+              <p className="text-xl/8 text-neutral-600">
                 Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
                 sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
                 id at vitae feugiat egestas ac. Diam nulla orci at in viverra
                 scelerisque eget. Eleifend egestas fringilla sapien.
               </p>
-              <p className="mt-10 max-w-2xl text-base/7 text-gray-700">
+              <p className="mt-10 max-w-2xl text-base/7 text-neutral-700">
                 Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
                 risus enim. Mattis mauris semper sed amet vitae sed turpis id.
                 Id dolor praesent donec est. Odio penatibus risus viverra tellus
@@ -148,12 +186,74 @@ export default function Home() {
               <p className="text-base/7 text-neutral-600">{stat.label}</p>
 
               <div className="text-sm/6 text-neutral-600 mt-7">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident similique nulla adipisci distinctio aut alias consectetur natus. Numquam earum cupiditate at impedit voluptatum sapiente, ullam neque iste provident obcaecati blanditiis!</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Provident similique nulla adipisci distinctio aut alias
+                  consectetur natus. Numquam earum cupiditate at impedit
+                  voluptatum sapiente, ullam neque iste provident obcaecati
+                  blanditiis!
+                </p>
               </div>
             </li>
           ))}
         </ul>
       </section>
+
+      <div className="relative aspect-5/2 w-full h-180 overflow-hidden xl:mx-auto xl:max-w-7xl xl:px-8 xl:rounded-3xl">
+        <div className="flex justify-center items-center size-full">
+          <Image
+            src="https://gbk.id/upload/1650345887-Hutan%20Kota%201.jpg"
+            alt=""
+            fill
+            className="size-full object-cover pointer-events-none outline-1 -outline-offset-1 outline-black/5"
+          />
+
+          <div className="relative z-2 mx-auto flex max-w-2xl flex-col gap-16 bg-neutral-50 p-6 shadow-sm sm:rounded-3xl lg:mx-0 lg:min-w-4xl lg:flex-row lg:items-center xl:gap-x-8">
+            <div className="w-full flex-auto">
+              <h2 className="text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
+                Cari Tempat Healing
+              </h2>
+              <p className="mt-6 text-sm/6 text-pretty text-neutral-600">
+                Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
+                magnam voluptatum cupiditate veritatis in accusamus quisquam.
+              </p>
+
+              <div className="flex flex-col gap-y-6 w-full my-5 py-5">
+                {people.map((person) => (
+                  <div
+                    key={person.name}
+                    className="relative flex items-center gap-x-10"
+                  >
+                    <div className="relative size-10 shrink-0">
+                      <CheckCircleIcon />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <Link href="#" className="focus:outline-hidden">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        <p className="font-medium text-gray-900 leading-7">
+                          {person.name}
+                        </p>
+                        <p className="truncate text-sm text-gray-500">
+                          {person.role} Tempat
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative aspect-3/4 max-w-sm size-full rounded-2xl overflow-hidden">
+              <Image
+                src="https://wisatamilenial.com/wp-content/uploads/2021/11/Suasana-Pengunjung-Hutan-Kota-GBK-Image-From-@aaboy19.jpg"
+                alt=""
+                fill
+                className="object-cover size-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section
         className="max-w-6xl mx-auto px-4 py-20"
@@ -183,13 +283,13 @@ export default function Home() {
                 src={link.image}
                 className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square"
               />
-              <h3 className="mt-6 text-sm text-gray-500">
+              <h3 className="mt-6 text-sm text-neutral-500">
                 <a href={link.href}>
                   <span className="absolute inset-0" />
                   {link.title}
                 </a>
               </h3>
-              <p className="text-base font-semibold text-gray-900">
+              <p className="text-base font-semibold text-neutral-900">
                 {link.desc}
               </p>
             </div>
