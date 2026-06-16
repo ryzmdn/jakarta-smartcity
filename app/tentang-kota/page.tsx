@@ -227,7 +227,7 @@ export default function TentangKotaPage() {
   return (
     <>
       <section
-        className="relative h-[400px] flex items-center justify-center overflow-hidden bg-slate-900"
+        className="relative h-150 flex items-center justify-center overflow-hidden bg-neutral-900"
         aria-labelledby="hero-title"
       >
         <img
@@ -235,20 +235,14 @@ export default function TentangKotaPage() {
           src={HERO_IMAGE}
           className="absolute inset-0 w-full h-full object-cover opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-900/60 to-transparent" />
         <div className="relative max-w-4xl mx-auto px-6 text-center text-white z-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-sky-500/20 text-sky-300 ring-1 ring-inset ring-sky-500/30 mb-4">
-            Mengenal Ibu Kota
-          </span>
           <h1
             id="hero-title"
-            className="text-4xl font-extrabold sm:text-5xl lg:text-6xl tracking-tight"
+            className="text-4xl font-semibold sm:text-5xl lg:text-6xl tracking-tight"
           >
-            {CITY_NAME}
+            Kenalan Lebih Dekat Tentang Kota Jakarta
           </h1>
-          <p className="mt-4 text-lg sm:text-xl text-slate-200 font-light max-w-2xl mx-auto">
-            {CITY_SUBTITLE}
-          </p>
         </div>
       </section>
 
