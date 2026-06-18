@@ -185,7 +185,7 @@ export default function Home() {
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl">
             Our mission
           </h2>
-          <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+          <div className="mt-6 flex flex-col gap-x-10 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-3xl lg:flex-auto">
               <p className="text-xl/8 text-neutral-600">
                 Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
@@ -202,12 +202,21 @@ export default function Home() {
                 sed amet vitae sed turpis id.
               </p>
             </div>
-            <div className="lg:flex lg:flex-auto lg:justify-center">
-              <div>
-                <img
+            <div className="relative lg:flex lg:flex-auto lg:justify-center">
+              <div className="absolute top-0 left-0 aspect-video h-36 rounded-lg overflow-hidden">
+                <Image
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwgqMD0KT8l3slbHqK9-fe3AQ_JvMbOoUuw&s"
                   alt=""
-                  className="aspect-video"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-0 right-0 aspect-video h-36 rounded-lg overflow-hidden">
+                <Image
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwgqMD0KT8l3slbHqK9-fe3AQ_JvMbOoUuw&s"
+                  alt=""
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
