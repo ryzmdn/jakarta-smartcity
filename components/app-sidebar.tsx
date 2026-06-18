@@ -3,6 +3,7 @@
 import { navigation } from "@/routes";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 interface AppSidebarProps {
   mobileMenuOpen: boolean;
@@ -53,12 +54,13 @@ export function AppSidebar({
               ))}
             </div>
             <div className="py-6">
-              <a
-                href="#"
-                className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+              <Link
+                href="/laporan"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white bg-blue-600 hover:bg-blue-500 text-center transition-all duration-200 shadow-sm"
               >
-                Log in
-              </a>
+                Laporan Warga
+              </Link>
             </div>
           </div>
         </div>

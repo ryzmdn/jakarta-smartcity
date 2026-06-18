@@ -47,8 +47,11 @@ export function AppHeader() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-sm/6 font-semibold text-gray-50">
-            Log in <span aria-hidden="true">&rarr;</span>
+          <Link
+            href="/laporan"
+            className="text-sm/6 font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all duration-200 px-4 py-1.5 rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5"
+          >
+            Laporan Warga <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </nav>
