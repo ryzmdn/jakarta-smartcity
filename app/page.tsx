@@ -73,61 +73,40 @@ const dataKoleksi = [
 const posts = [
   {
     id: 1,
-    title: "Boost your conversion rate",
-    description: "Boost your conversion rate",
-    href: "#",
+    title: "Laporan Cepat Tanggap (CRM)",
+    description: "Sistem integrasi laporan warga untuk penanganan masalah kota yang cepat, efisien, dan transparan.",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      description: "Boost your conversion rate",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
+      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?q=80&w=600&auto=format&fit=crop",
+    features: [
+      "13 kanal pengaduan resmi terintegrasi.",
+      "Penanganan langsung oleh OPD terkait.",
+      "Pelacakan status laporan secara real-time."
+    ]
   },
   {
     id: 2,
-    title: "How to use search engine optimization to drive sales",
-    description: "Boost your conversion rate",
-    href: "#",
+    title: "JakWifi - Internet untuk Semua",
+    description: "Penyediaan akses internet gratis di ribuan titik ruang publik guna mendukung produktivitas digital warga.",
     imageUrl:
-      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-    date: "Mar 10, 2020",
-    datetime: "2020-03-10",
-    category: { title: "Sales", href: "#" },
-    author: {
-      name: "Lindsay Walton",
-      role: "Front-end Developer",
-      description: "Boost your conversion rate",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop",
+    features: [
+      "Lebih dari 10.500 titik akses aktif.",
+      "Akses gratis tanpa batasan waktu.",
+      "Mendukung pembelajaran jarak jauh & UMKM."
+    ]
   },
   {
     id: 3,
-    title: "Improve your customer experience",
-    description: "Boost your conversion rate",
-    href: "#",
+    title: "Sistem Transportasi Cerdas",
+    description: "Integrasi moda transportasi publik modern untuk mobilitas warga yang lebih lancar dan terjadwal.",
     imageUrl:
-      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-    date: "Feb 12, 2020",
-    datetime: "2020-02-12",
-    category: { title: "Business", href: "#" },
-    author: {
-      name: "Tom Cook",
-      role: "Director of Product",
-      description: "Boost your conversion rate",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=600&auto=format&fit=crop",
+    features: [
+      "Pembayaran terpadu dengan satu kartu.",
+      "Rute terintegrasi MRT, LRT, & TransJakarta.",
+      "Informasi kedatangan armada secara real-time."
+    ]
+  }
 ];
 
 const callouts = [
@@ -238,10 +217,10 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl my-20 px-4 py-10 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl">
-          Lihat Halaman Lain Yang Menarik
+          Inovasi & Layanan Digital Unggulan
         </h2>
         <p className="mt-3 text-lg/8 text-neutral-600">
-          Learn how to grow your business with our expert advice.
+          Pelajari berbagai inovasi dan layanan publik berbasis teknologi yang dikembangkan untuk mempermudah kehidupan warga Jakarta.
         </p>
         <div className="grid mt-16 gap-10 lg:grid-cols-2 lg:mt-20">
           {posts.map((post) => (
@@ -265,10 +244,10 @@ export default function Home() {
                   <p className="mt-1.5 text-sm/6 text-neutral-600">
                     {post.description}
                   </p>
-                  <ul className="text-sm/6 text-neutral-800 space-y-2 mt-5">
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
+                  <ul className="text-sm/6 text-neutral-800 space-y-2 mt-5 list-disc list-inside">
+                    {post.features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
