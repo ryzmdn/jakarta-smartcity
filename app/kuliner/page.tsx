@@ -19,52 +19,85 @@ const CATEGORIES = [
 const posts = [
   {
     id: 1,
-    title: "Boost your conversion rate",
+    title: "Soto Betawi H. Ma'ruf",
     href: "#",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1707897748442-cc3a48d31300?q=80&w=742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    author: {
-      name: "Michael Foster",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
+    description: "Kuliner legendaris Jakarta dengan kuah campuran santan dan susu yang gurih, dipadukan daging sapi rempah pilihan.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2021/04/20/soto-betawi-h-maruf-4.jpeg?w=600&q=90",
+    location: "Taman Ismail Marzuki, Jakarta Pusat",
+    category: "food"
   },
   {
     id: 2,
-    title: "How to use search engine optimization to drive sales",
+    title: "Kerak Telor Kemayoran",
     href: "#",
-    description:
-      "Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1680676066605-08566beed799?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    date: "Mar 10, 2020",
-    datetime: "2020-03-10",
-    author: {
-      name: "Lindsay Walton",
-      imageUrl:
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
+    description: "Makanan khas Betawi berbahan ketan, telur bebek/ayam, disajikan dengan serundeng kelapa, ebi, dan bawang goreng.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2023/06/17/kerak-telor-jakarta-1.jpeg?w=600&q=90",
+    location: "Kawasan PRJ Kemayoran, Jakarta Pusat",
+    category: "food"
   },
   {
     id: 3,
-    title: "Improve your customer experience",
+    title: "Nasi Uduk Kebon Kacang",
     href: "#",
-    description:
-      "Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1707895601261-d436b178b50e?q=80&w=611&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    date: "Feb 12, 2020",
-    datetime: "2020-02-12",
-    author: {
-      name: "Tom Cook",
-      imageUrl:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
+    description: "Nasi uduk harum dibungkus daun pisang berbentuk kerucut, disajikan dengan ayam goreng khas dan sambal kacang.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2022/10/24/nasi-uduk-kebon-kacang_43.jpeg?w=600&q=90",
+    location: "Kebon Kacang, Jakarta Pusat",
+    category: "food"
   },
+  {
+    id: 4,
+    title: "Bir Pletok Rempah Betawi",
+    href: "#",
+    description: "Minuman herbal khas Betawi kaya rempah seperti jahe, serai, dan kayu secang. Menghangatkan dan tanpa alkohol.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2021/02/19/bir-pletok.jpeg?w=600&q=90",
+    location: "Setu Babakan, Jakarta Selatan",
+    category: "drink"
+  },
+  {
+    id: 5,
+    title: "Es Selendang Mayang",
+    href: "#",
+    description: "Minuman tradisional penyegar dahaga berisi puding sagu kenyal warna-warni, disiram santan gurih dan sirup gula merah.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2023/04/11/es-selendang-mayang_43.jpeg?w=600&q=90",
+    location: "Kota Tua, Jakarta Barat",
+    category: "drink"
+  },
+  {
+    id: 6,
+    title: "Es Campur & Doger Tradisional",
+    href: "#",
+    description: "Minuman dingin legendaris bercita rasa manis legit dengan isian kelapa muda, ketan hitam, alpukat, dan tapai.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2022/04/05/es-campur-oyen_43.jpeg?w=600&q=90",
+    location: "Pusat Kuliner Melawai, Jakarta Selatan",
+    category: "drink"
+  },
+  {
+    id: 7,
+    title: "Jalan Sabang Street Food",
+    href: "#",
+    description: "Pusat jajanan malam legendaris di jantung Jakarta yang menawarkan aneka pilihan sate, nasi goreng, hingga martabak.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2019/07/26/d2836261-ebcf-42ad-8419-f5c71d6cc47c_169.jpeg?w=600&q=90",
+    location: "Jl. H. Agus Salim, Gambir, Jakarta Pusat",
+    category: "spot"
+  },
+  {
+    id: 8,
+    title: "Pusat Kuliner Malam Pecenongan",
+    href: "#",
+    description: "Destinasi kuliner legendaris Jakarta yang sangat populer dengan hidangan seafood segar dan martabak manis premium.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2016/09/20/86fa2e8a-e9fa-47cb-9c16-cf4c7d0577a7_169.jpg?w=600&q=90",
+    location: "Jl. Pecenongan, Gambir, Jakarta Pusat",
+    category: "spot"
+  },
+  {
+    id: 9,
+    title: "Food Court Lenggang Jakarta",
+    href: "#",
+    description: "Pusat kuliner tertata binaan pemprov di kawasan Monas yang menyajikan ratusan hidangan khas Nusantara dengan higienis.",
+    imageUrl: "https://awsimages.detik.net.id/community/media/visual/2015/05/22/a3c94ec4-51cb-4029-bbdf-5f72cfda6e9b_169.jpg?w=600&q=90",
+    location: "Kawasan IRTI Monas, Jakarta Pusat",
+    category: "spot"
+  }
 ];
 
 export default function KulinerPage() {
@@ -78,6 +111,16 @@ export default function KulinerPage() {
       [id]: !prev[id],
     }));
   };
+
+  const filteredPosts = posts.filter((post) => {
+    const matchesCategory =
+      selectedCategory === "all" || post.category === selectedCategory;
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.location.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <>
@@ -150,20 +193,20 @@ export default function KulinerPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-semibold tracking-tight text-balance text-neutral-900 sm:text-5xl">
-              From the blog
+              Rekomendasi Kuliner Terpilih
             </h2>
             <p className="mt-2 text-lg/8 text-neutral-600">
-              Learn how to grow your business with our expert advice.
+              Cari dan temukan hidangan legendaris serta pusat kuliner terpopuler di Jakarta.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
               <article
                 key={post.id}
                 className="relative isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-neutral-900 px-8 pt-80 pb-8 sm:pt-48 lg:pt-80"
               >
                 <img
-                  alt=""
+                  alt={post.title}
                   src={post.imageUrl}
                   className="absolute inset-0 -z-10 size-full object-cover"
                 />
@@ -171,7 +214,7 @@ export default function KulinerPage() {
                 <div className="absolute inset-0 -z-10 rounded-2xl inset-ring inset-ring-neutral-900/10" />
 
                 <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-neutral-300">
-                  <p>472 Border St. Freeport, NY 1152</p>
+                  <p>{post.location}</p>
                 </div>
                 <h3 className="mt-3 text-lg/6 font-semibold text-white">
                   <a href={post.href}>
@@ -201,11 +244,10 @@ export default function KulinerPage() {
           <div className="absolute inset-x-0 bottom-0 rounded-br-lg rounded-bl-lg bg-black/75 p-6 backdrop-blur-sm backdrop-filter sm:flex sm:items-center sm:justify-between lg:inset-x-auto lg:inset-y-0 lg:w-96 lg:flex-col lg:items-start lg:rounded-tl-lg lg:rounded-br-none">
             <div>
               <h2 className="text-xl font-bold text-white">
-                Workspace Collection
+                Peta Destinasi Kuliner Jakarta
               </h2>
               <p className="mt-1 text-sm text-neutral-300">
-                Upgrade your desk with objects that keep you organized and
-                clear-minded.
+                Temukan lokasi pusat jajanan malam, restoran legendaris, dan area kuliner terdekat di sekitar Jakarta.
               </p>
             </div>
             <a
@@ -214,7 +256,7 @@ export default function KulinerPage() {
               rel="noopener noreferrer"
               className="mt-6 flex shrink-0 items-center justify-center rounded-md border border-white/25 px-4 py-3 text-base font-medium text-white hover:bg-white/10 sm:mt-0 sm:ml-8 lg:ml-0 lg:w-full"
             >
-              View the collection
+              Buka di Google Maps
             </a>
           </div>
         </div>

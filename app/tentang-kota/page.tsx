@@ -18,11 +18,12 @@ const tabs = [
     name: 'Transjakarta',
     features: [
       {
-        name: 'Adaptive and modular',
+        
+        name: 'Jaringan BRT Terpanjang di Dunia',
         description:
-          'The Organize base set allows you to configure and evolve your setup as your items and habits change. The included trays and optional add-ons are easily rearranged to achieve that perfect setup.',
+          'Transjakarta melayani rute bus rapid transit terintegrasi yang menghubungkan seluruh koridor utama di Jakarta demi efisiensi perjalanan harian Anda.',
         imageSrc: 'https://www.jakarta.go.id/uploads/contents/content--20230406021851.jpeg',
-        imageAlt: 'Maple organizer base with slots, supporting white polycarbonate trays of various sizes.',
+        imageAlt: 'Bus Transjakarta berwarna biru oranye sedang melintas di jalur khusus BRT.',
       },
     ],
   },
@@ -30,12 +31,12 @@ const tabs = [
     name: 'LRT Jakarta',
     features: [
       {
-        name: 'Natural wood options',
+        name: 'Konektivitas Cepat & Ramah Lingkungan',
         description:
-          'Organize has options for rich walnut and bright maple base materials. Accent your desk with a contrasting material, or match similar woods for a calm and cohesive look. Every base is hand sanded and finished.',
+          'LRT Jakarta hadir sebagai moda transportasi berbasis rel modern dengan efisiensi tinggi, menghubungkan area strategis perkotaan dengan waktu tempuh yang andal.',
         imageSrc: 'https://asset.kompas.com/crops/exmdHqy6wXmVgRnS-aSWCoTbhAw=/115x75:1274x847/1200x800/data/photo/2023/09/16/6504f38939e78.jpeg',
         imageAlt:
-          'Walnut organizer base with pen, sticky note, phone, and bin trays, next to modular drink coaster attachment.',
+          'Kereta LRT Jakarta modern yang melintasi jalur layang perkotaan.',
       },
     ],
   },
@@ -43,11 +44,11 @@ const tabs = [
     name: 'KAI Commuter',
     features: [
       {
-        name: 'Helpful around the home',
+        name: 'Penyambung Wilayah Metropolitan Jabodetabek',
         description:
-          "Our customers use Organize throughout the house to bring efficiency to many daily routines. Enjoy Organize in your workspace, kitchen, living room, entry way, garage, and more. We can't wait to see how you'll use it!",
+          'KRL Commuter Line menghubungkan wilayah penyangga sekitar Jakarta (Bogor, Depok, Tangerang, Bekasi) untuk mobilitas komuter harian berskala besar.',
         imageSrc: 'https://kci.id/app/sam/assets/about_us/c8b78de448ca4223c258358a4db09cce.jpeg',
-        imageAlt: 'Walnut organizer base with white polycarbonate trays in the kitchen with various kitchen utensils.',
+        imageAlt: 'Suasana peron stasiun KRL Commuter Line yang bersih dan tertib.',
       },
     ],
   },
@@ -55,11 +56,11 @@ const tabs = [
     name: 'MRT Jakarta',
     features: [
       {
-        name: "Everything you'll need",
+        name: 'Transportasi Cepat Terpadu Bawah Tanah',
         description:
-          'The Organize base set includes the pen, phone, small, and large trays to help you group all your essential items. Expand your set with the drink coaster and headphone stand add-ons.',
+          'Moda Raya Terpadu (MRT) Jakarta memadukan kecepatan waktu tempuh dengan fasilitas berkelas internasional untuk kenyamanan bepergian di jantung kota.',
         imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/MRTset3.jpg',
-        imageAlt: 'Walnut organizer system on black leather desk mat on top of white desk.',
+        imageAlt: 'Stasiun bawah tanah MRT Jakarta yang modern, luas, dan ramah disabilitas.',
       },
     ],
   },
@@ -138,8 +139,7 @@ const features = [
       "Jakarta kini bertransformasi menjadi Kota Global yang inklusif, tangguh, dan berkelanjutan. Meskipun mengalami transisi administratif, Jakarta tetap menjadi episentrum ekonomi nasional, pusat diplomasi regional, serta magnet kreativitas dan inovasi yang tak pernah padam.",
     imageSrc:
       "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
-    imageAlt:
-      "White canvas laptop sleeve with neutral felt interior, silver zipper, and tan leather zipper pull.",
+    imageAlt: "Gedung pencakar langit modern di pusat bisnis Jakarta.",
   },
   {
     name: "Rentang Waktu Peradaban",
@@ -147,38 +147,38 @@ const features = [
       "Bermula dari pelabuhan Sunda Kelapa yang ramai pada abad ke-14, wilayah ini berkembang menjadi Jayakarta, Batavia, hingga akhirnya ditetapkan sebagai ibu kota negara dengan nama Jakarta. Setiap era meninggalkan jejak sejarah yang kini mewarnai budaya dan arsitektur kota.",
     imageSrc:
       "https://images.unsplash.com/photo-1593012095939-e01118d1b6db?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
+    imageAlt: "Kawasan bersejarah Kota Tua Batavia yang sarat cerita sejarah.",
   },
 ];
 
 const timeline = [
   {
-    name: "Founded company",
+    name: "Inisiasi Smart City",
     description:
-      "Nihil aut nam. Dignissimos a pariatur et quos omnis. Aspernatur asperiores et dolorem dolorem optio voluptate repudiandae.",
+      "Peluncuran perdana inisiatif Jakarta Smart City untuk mengintegrasikan data pelayanan publik.",
+    date: "Dec 2014",
+    dateTime: "2014-12",
+  },
+  {
+    name: "Super-App JAKI Lahir",
+    description:
+      "Perilisan Jakarta Kini (JAKI) sebagai aplikasi satu pintu untuk akses semua informasi perkotaan.",
+    date: "Dec 2019",
+    dateTime: "2019-12",
+  },
+  {
+    name: "Integrasi Transportasi",
+    description:
+      "Peresmian sistem JakLingko yang mengintegrasikan tarif dan operasional antarmoda transportasi umum.",
     date: "Aug 2021",
     dateTime: "2021-08",
   },
   {
-    name: "Secured $65m in funding",
+    name: "Menuju Kota Global",
     description:
-      "Provident quia ut esse. Vero vel eos repudiandae aspernatur. Cumque minima impedit sapiente a architecto nihil.",
-    date: "Dec 2021",
-    dateTime: "2021-12",
-  },
-  {
-    name: "Released beta",
-    description:
-      "Sunt perspiciatis incidunt. Non necessitatibus aliquid. Consequatur ut officiis earum eum quia facilis. Hic deleniti dolorem quia et.",
-    date: "Feb 2022",
-    dateTime: "2022-02",
-  },
-  {
-    name: "Global launch of product",
-    description:
-      "Ut ipsa sint distinctio quod itaque nam qui. Possimus aut unde id architecto voluptatem hic aut pariatur velit.",
-    date: "Dec 2022",
-    dateTime: "2022-12",
+      "Akselerasi teknologi IoT dan kecerdasan buatan (AI) guna mendukung visi Jakarta sebagai hub kota global.",
+    date: "Mar 2024",
+    dateTime: "2024-03",
   },
 ];
 
@@ -215,7 +215,7 @@ const people = [
   },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
@@ -276,19 +276,14 @@ export default function TentangKotaPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Our mission</h2>
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Visi & Misi Kota Pintar</h2>
           <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-4xl lg:flex-auto">
               <p className="text-xl/8 text-gray-600">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam
-                eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget.
-                Eleifend egestas fringilla sapien.
+                Jakarta terus melangkah maju dengan visi mewujudkan kota pintar berkelanjutan. Kami memanfaatkan teknologi untuk mempermudah hidup warga, meningkatkan ketangguhan infrastruktur, dan mewujudkan transparansi tata kelola pemerintahan kota.
               </p>
               <p className="mt-10 max-w-3xl text-base/7 text-gray-700">
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
-                vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
-                erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                semper sed amet vitae sed turpis id.
+                Melalui kolaborasi lintas sektor antara pemerintah, swasta, akademisi, dan partisipasi aktif seluruh elemen masyarakat, Jakarta bertransformasi menjadi kota global yang tidak hanya cerdas teknologinya tetapi juga berdaya saing tinggi dan ramah bagi setiap warga.
               </p>
             </div>
           </div>
@@ -298,38 +293,37 @@ export default function TentangKotaPage() {
       <section className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-            We approach work as a place to make the world better
+            Teknologi untuk Meningkatkan Kualitas Hidup Warga
           </h2>
           <p className="mt-6 text-base/7 text-gray-600">
-            Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras
-            purus nibh cursus sit eu in id. Integer vel nibh.
+            Dampak nyata teknologi cerdas dirasakan langsung dalam peningkatan transparansi layanan publik, efisiensi mobilitas, dan integrasi penanggulangan masalah perkotaan.
           </p>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
           <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-50 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start">
-            <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">250k</p>
+            <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">4 Juta+</p>
             <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-              <p className="text-lg font-semibold tracking-tight text-gray-900">Users on the platform</p>
-              <p className="mt-2 text-base/7 text-gray-600">Vel labore deleniti veniam consequuntur sunt nobis.</p>
+              <p className="text-lg font-semibold tracking-tight text-gray-900">Pengguna Aktif JAKI</p>
+              <p className="mt-2 text-base/7 text-gray-600">Masyarakat Jakarta mengandalkan aplikasi super untuk kebutuhan pelaporan dan informasi publik.</p>
             </div>
           </div>
           <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44">
-            <p className="flex-none text-3xl font-bold tracking-tight text-white">$8.9 billion</p>
+            <p className="flex-none text-3xl font-bold tracking-tight text-white">98.7%</p>
             <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
               <p className="text-lg font-semibold tracking-tight text-white">
-                We’re proud that our customers have made over $8 billion in total revenue.
+                Respons Cepat Aduan
               </p>
               <p className="mt-2 text-base/7 text-gray-400">
-                Eu duis porta aliquam ornare. Elementum eget magna egestas.
+                Tingkat penyelesaian laporan pengaduan masyarakat secara berkala oleh tim cepat tanggap kota.
               </p>
             </div>
           </div>
           <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-indigo-600 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
-            <p className="flex-none text-3xl font-bold tracking-tight text-white">401,093</p>
+            <p className="flex-none text-3xl font-bold tracking-tight text-white">10.500+</p>
             <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-              <p className="text-lg font-semibold tracking-tight text-white">Transactions this year</p>
+              <p className="text-lg font-semibold tracking-tight text-white">Titik Wifi Gratis</p>
               <p className="mt-2 text-base/7 text-indigo-200">
-                Eu duis porta aliquam ornare. Elementum eget magna egestas. Eu duis porta aliquam ornare.
+                Titik internet gratis (JakWifi) yang dipasang merata di seluruh kelurahan di Jakarta.
               </p>
             </div>
           </div>
@@ -459,8 +453,7 @@ export default function TentangKotaPage() {
               Moda Transportasi Jakarta
             </h2>
             <p className="mt-4 text-neutral-500">
-              The Organize modular system offers endless options for arranging your favorite and most used items. Keep
-              everything at reach and in its place, while dressing up your workspace.
+              Jakarta terus memperkuat integrasi antarmoda transportasi guna memberikan kemudahan perjalanan, kepastian waktu, dan kenyamanan mobilitas harian bagi seluruh warga kota.
             </p>
           </div>
 
