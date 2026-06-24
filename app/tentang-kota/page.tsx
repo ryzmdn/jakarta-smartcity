@@ -12,6 +12,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Fragment } from 'react'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import { cn } from "@/lib/utils";
 
 const tabs = [
   {
@@ -338,7 +339,7 @@ export default function TentangKotaPage() {
               className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8"
             >
               <div
-                className={classNames(
+                className={cn(
                   featureIdx % 2 === 0
                     ? "lg:col-start-1"
                     : "lg:col-start-8 xl:col-start-9",
@@ -353,7 +354,7 @@ export default function TentangKotaPage() {
                 </p>
               </div>
               <div
-                className={classNames(
+                className={cn(
                   featureIdx % 2 === 0
                     ? "lg:col-start-6 xl:col-start-5"
                     : "lg:col-start-1",
