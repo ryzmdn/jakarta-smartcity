@@ -10,10 +10,26 @@ const HERO_IMAGE =
   "https://images.unsplash.com/photo-1718729362445-51d2da1ee7a7?q=80&w=1200&auto=format&fit=crop";
 
 const METRICS_DATA = [
-  { label: "JakWifi Gratis", value: "10,500+ Titik" },
-  { label: "Laporan CRM Selesai", value: "98.7% Tuntas" },
-  { label: "Pengguna Transportasi Harian", value: "1.3 Juta+" },
-  { label: "Pengguna Transportasi", value: "1.3 Juta+" },
+  {
+    label: "JakWifi Gratis",
+    value: "10,500+ Titik",
+    description: "Akses internet gratis tersebar di seluruh area pemukiman, ruang publik, dan fasilitas sosial Jakarta."
+  },
+  {
+    label: "Laporan CRM Selesai",
+    value: "98.7% Tuntas",
+    description: "Penyelesaian laporan warga melalui 13 kanal pengaduan resmi Cepat Respon Masyarakat secara cepat."
+  },
+  {
+    label: "Pengguna Transportasi Harian",
+    value: "1.3 Juta+",
+    description: "Mobilitas warga yang terfasilitasi oleh integrasi TransJakarta, MRT, dan LRT setiap harinya."
+  },
+  {
+    label: "Layanan Digital Terintegrasi",
+    value: "50+ Layanan",
+    description: "Layanan publik terdigitalisasi dari perizinan, kesehatan, hingga kependudukan melalui satu platform."
+  }
 ];
 
 const spaces = [
@@ -150,38 +166,30 @@ export default function Home() {
       <section className="space-y-28 mx-auto max-w-7xl my-20 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl">
-            Our mission
+            Ringkasan Tentang Kota
           </h2>
           <div className="mt-6 flex flex-col gap-x-10 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-3xl lg:flex-auto">
               <p className="text-xl/8 text-neutral-600">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
-                sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
-                id at vitae feugiat egestas ac. Diam nulla orci at in viverra
-                scelerisque eget. Eleifend egestas fringilla sapien.
+                Jakarta berkomitmen untuk terus berkembang sebagai kota cerdas (Smart City) kelas dunia yang memanfaatkan teknologi informasi dan komunikasi guna mewujudkan ekosistem kota yang efisien, transparan, dan inklusif.
               </p>
               <p className="mt-10 max-w-2xl text-base/7 text-neutral-700">
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
-                risus enim. Mattis mauris semper sed amet vitae sed turpis id.
-                Id dolor praesent donec est. Odio penatibus risus viverra tellus
-                varius sit neque erat velit. Faucibus commodo massa rhoncus,
-                volutpat. Dignissim sed eget risus enim. Mattis mauris semper
-                sed amet vitae sed turpis id.
+                Melalui berbagai program integrasi data, optimalisasi layanan publik, serta digitalisasi fasilitas kota, Jakarta Smart City bertujuan mempermudah interaksi warga dengan pemerintah serta mendorong kolaborasi demi masa depan kota yang lebih baik.
               </p>
             </div>
             <div className="relative lg:flex lg:flex-auto lg:justify-center">
               <div className="absolute top-0 left-0 aspect-video h-36 rounded-lg overflow-hidden">
                 <Image
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwgqMD0KT8l3slbHqK9-fe3AQ_JvMbOoUuw&s"
-                  alt=""
+                  src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=400&auto=format&fit=crop"
+                  alt="Jakarta City Skyline"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="absolute bottom-0 right-0 aspect-video h-36 rounded-lg overflow-hidden">
                 <Image
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwgqMD0KT8l3slbHqK9-fe3AQ_JvMbOoUuw&s"
-                  alt=""
+                  src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?q=80&w=400&auto=format&fit=crop"
+                  alt="Smart City Operation Center"
                   fill
                   className="object-cover"
                 />
@@ -203,11 +211,7 @@ export default function Home() {
 
               <div className="text-sm/6 text-neutral-600 mt-7">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Provident similique nulla adipisci distinctio aut alias
-                  consectetur natus. Numquam earum cupiditate at impedit
-                  voluptatum sapiente, ullam neque iste provident obcaecati
-                  blanditiis!
+                  {stat.description}
                 </p>
               </div>
             </li>
