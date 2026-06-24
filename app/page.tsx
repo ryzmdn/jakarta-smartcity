@@ -1,14 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import {
-  ChevronDownIcon,
-  CheckBadgeIcon,
-  CheckCircleIcon,
-} from "@heroicons/react/24/outline";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { AppHeading } from "@/components/app-heading";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const HERO_TITLE = "Selamat Datang di Masa Depan Jakarta";
@@ -22,47 +16,36 @@ const METRICS_DATA = [
   { label: "Pengguna Transportasi", value: "1.3 Juta+" },
 ];
 
-const FAQS = [
+const spaces = [
   {
-    q: "Apa itu Nusantara Digital City?",
-    a: "Sebuah inisiatif terpadu untuk mempromosikan digitalisasi identitas, pariwisata, sejarah, budaya, dan pelayanan publik kota-kota di Indonesia agar ramah aksesibilitas dan berkelanjutan bagi seluruh kalangan.",
-  },
-  {
-    q: "Bagaimana cara warga ikut serta dalam Smart City?",
-    a: "Warga dapat berpartisipasi aktif dengan memantau kota dan melaporkan fasilitas publik yang rusak lewat aplikasi JAKI, menggunakan transportasi umum terintegrasi, serta melestarikan produk budaya secara digital.",
-  },
-];
-
-const people = [
-  {
-    name: "Open Space",
-    role: 50,
+    name: "Ruang Terbuka Hijau & Eco Park",
+    total: 150,
     imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1588880331179-bc9b93a8c5c8?q=80&w=256&h=256&auto=format&fit=crop",
   },
   {
-    name: "Kesehatan & Olahraga",
-    role: 121,
+    name: "Hub Transportasi Terintegrasi",
+    total: 12,
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=256&h=256&auto=format&fit=crop",
   },
   {
-    name: "Kamp Musim Panas",
-    role: 62,
+    name: "Command Center & Tanggap Cepat",
+    total: 5,
     imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=256&h=256&auto=format&fit=crop",
   },
   {
-    name: "Grup Komunitas",
-    role: 89,
+    name: "Co-working Space & Creative Hub",
+    total: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=256&h=256&auto=format&fit=crop",
   },
   {
-    name: "Kreasi dan Acara",
-    role: 20,
+    name: "Pusat Pelayanan Publik Digital",
+    total: 45,
     imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=256&h=256&auto=format&fit=crop",
   },
 ];
 
@@ -149,25 +132,30 @@ const posts = [
 
 const callouts = [
   {
-    name: 'Desk and Office',
-    description: 'Work from home accessories',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-02-edition-01.jpg',
-    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-    href: '#',
+    name: "Desk and Office",
+    description: "Work from home accessories",
+    imageSrc:
+      "https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-02-edition-01.jpg",
+    imageAlt:
+      "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
+    href: "#",
   },
   {
-    name: 'Self-Improvement',
-    description: 'Journals and note-taking',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-02-edition-02.jpg',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
+    name: "Self-Improvement",
+    description: "Journals and note-taking",
+    imageSrc:
+      "https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-02-edition-02.jpg",
+    imageAlt:
+      "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
+    href: "#",
   },
   {
-    name: 'Travel',
-    description: 'Daily commute essentials',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-02-edition-03.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
+    name: "Travel",
+    description: "Daily commute essentials",
+    imageSrc:
+      "https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-02-edition-03.jpg",
+    imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
+    href: "#",
   },
 ];
 
@@ -264,7 +252,7 @@ export default function Home() {
               <div className="relative aspect-3/2 w-full max-w-50 rounded-lg overflow-hidden">
                 <Image
                   src={post.imageUrl}
-                  alt=""
+                  alt={post.title}
                   fill
                   className="object-cover"
                 />
@@ -301,17 +289,16 @@ export default function Home() {
           <div className="relative z-2 mx-auto flex max-w-2xl flex-col gap-16 bg-neutral-50 p-6 shadow-sm sm:rounded-3xl lg:mx-0 lg:min-w-4xl lg:flex-row lg:items-center xl:gap-x-8">
             <div className="w-full flex-auto">
               <h2 className="text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
-                Cari Tempat Healing
+                Temukan Layanan & Ruang Publik Terintegrasi
               </h2>
               <p className="mt-6 text-sm/6 text-pretty text-neutral-600">
-                Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-                magnam voluptatum cupiditate veritatis in accusamus quisquam.
+                Jakarta kini bertransformasi dengan menghadirkan fasilitas publik pintar yang mudah diakses guna mendukung produktivitas, kenyamanan, dan kualitas hidup seluruh warga.
               </p>
 
               <div className="flex flex-col gap-y-6 w-full my-5 py-5">
-                {people.map((person) => (
+                {spaces.map((space) => (
                   <div
-                    key={person.name}
+                    key={space.name}
                     className="relative flex items-center gap-x-10"
                   >
                     <div className="relative size-10 shrink-0">
@@ -321,10 +308,10 @@ export default function Home() {
                       <Link href="#" className="focus:outline-hidden">
                         <span aria-hidden="true" className="absolute inset-0" />
                         <p className="font-medium text-neutral-900 leading-7">
-                          {person.name}
+                          {space.name}
                         </p>
                         <p className="truncate text-sm text-neutral-500">
-                          {person.role} Tempat
+                          {space.total} Tempat
                         </p>
                       </Link>
                     </div>
@@ -336,7 +323,7 @@ export default function Home() {
             <div className="relative aspect-3/4 max-w-sm size-full rounded-2xl overflow-hidden">
               <Image
                 src="https://wisatamilenial.com/wp-content/uploads/2021/11/Suasana-Pengunjung-Hutan-Kota-GBK-Image-From-@aaboy19.jpg"
-                alt=""
+                alt="Jakarta Smart City Facility"
                 fill
                 className="object-cover size-full"
               />
@@ -347,23 +334,31 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
+          <h2 className="text-2xl font-bold text-neutral-900">Collections</h2>
 
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-6">
             {callouts.map((callout) => (
-              <div key={callout.name} className="group relative">
-                <img
-                  alt={callout.imageAlt}
-                  src={callout.imageSrc}
-                  className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square"
-                />
-                <h3 className="mt-6 text-sm text-gray-500">
-                  <a href={callout.href}>
+              <div
+                key={callout.name}
+                className="group relative w-full bg-white"
+              >
+                <div className="relative group-hover:opacity-75 rounded-lg max-sm:h-80 sm:aspect-2/1 lg:aspect-square">
+                  <Image
+                    alt={callout.imageAlt}
+                    src={callout.imageSrc}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="mt-6 text-sm text-neutral-500">
+                  <Link href={callout.href}>
                     <span className="absolute inset-0" />
                     {callout.name}
-                  </a>
+                  </Link>
                 </h3>
-                <p className="text-base font-semibold text-gray-900">{callout.description}</p>
+                <p className="text-base font-semibold text-neutral-900">
+                  {callout.description}
+                </p>
               </div>
             ))}
           </div>
